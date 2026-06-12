@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SpeakQuest</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Segoe UI, sans-serif;
+    background:linear-gradient(180deg,#101728,#1d2942);
+    color:white;
+    min-height:100vh;
+}
+
+.hero{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.logo{
+    font-size:4rem;
+}
+
+h1{
+    font-size:4rem;
+    margin-top:15px;
+}
+
+.subtitle{
+    font-size:1.3rem;
+    color:#cfd7ff;
+    margin-top:15px;
+}
+
+.enter-btn{
+    margin-top:35px;
+    padding:18px 40px;
+    font-size:1.2rem;
+    border:none;
+    border-radius:15px;
+    background:#6f7cff;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.enter-btn:hover{
+    transform:translateY(-3px);
+}
+
+.realms{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:2rem;
+}
+
+.realm-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.realm-card{
+    background:#1f2c4a;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+}
+
+.realm-card h3{
+    margin-bottom:10px;
+}
+
+.characters{
+    max-width:1200px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+.character-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.character-card{
+    background:#1f2c4a;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.character-card:hover{
+    transform:translateY(-5px);
+}
+
+.avatar{
+    font-size:4rem;
+}
+
+.level{
+    margin-top:10px;
+    color:#8db3ff;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#aeb7d6;
+}
+
+</style>
+
+</head>
+<body>
+
+<section class="hero">
+
+<div class="logo">🏰</div>
+
+<h1>SpeakQuest</h1>
+
+<p class="subtitle">
+Master English Through Adventure
+</p>
+
+<p class="subtitle">
+Speak • Explore • Unlock Characters • Level Up
+</p>
+
+<button class="enter-btn">
+Enter The Academy
+</button>
+
+</section>
+
+<section class="realms">
+
+<h2 class="section-title">
+🌍 CEFR Realms
+</h2>
+
+<div class="realm-grid">
+
+<div class="realm-card">
+<h3>🌱 A1 Meadow</h3>
+<p>Learn basic introductions and everyday phrases.</p>
+</div>
+
+<div class="realm-card">
+<h3>🌳 A2 Forest</h3>
+<p>Build confidence through simple conversations.</p>
+</div>
+
+<div class="realm-card">
+<h3>⚔ B1 Kingdom</h3>
+<p>Handle real-world discussions and opinions.</p>
+</div>
+
+<div class="realm-card">
+<h3>🏰 B2 Citadel</h3>
+<p>Develop fluency and critical communication.</p>
+</div>
+
+<div class="realm-card">
+<h3>✨ C1 Empire</h3>
+<p>Advanced speaking and academic interaction.</p>
+</div>
+
+<div class="realm-card">
+<h3>👑 C2 Summit</h3>
+<p>Master-level communication challenges.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="characters">
+
+<h2 class="section-title">
+🧙 Character Hall
+</h2>
+
+<div class="character-grid">
+
+<div class="character-card">
+<div class="avatar">🌙</div>
+<h3>Luna</h3>
+<p>Forest Guide</p>
+<p class="level">Unlocked at A1</p>
+</div>
+
+<div class="character-card">
+<div class="avatar">🛡</div>
+<h3>Orion</h3>
+<p>Guardian Knight</p>
+<p class="level">Unlocked at A2</p>
+</div>
+
+<div class="character-card">
+<div class="avatar">📚</div>
+<h3>Elara</h3>
+<p>Knowledge Sage</p>
+<p class="level">Unlocked at B1</p>
+</div>
+
+<div class="character-card">
+<div class="avatar">⚔</div>
+<h3>Rowan</h3>
+<p>Quest Captain</p>
+<p class="level">Unlocked at B2</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+SpeakQuest © 2026
+
+</footer>
+
+</body>
+</html>
