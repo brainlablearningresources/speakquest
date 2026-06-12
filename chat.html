@@ -81,7 +81,7 @@ Hello adventurer! My name is Luna.
 What is your name?
 </div>
 
-<div class="message student">
+<div class="message student" id="studentText">
 (Student response will appear here)
 </div>
 
@@ -89,12 +89,43 @@ What is your name?
 
 <div class="input-area">
 
-<button>
+<button onclick="startListening()">
 🎤 Start Speaking
 </button>
 
 </div>
+<script>
 
+function startListening(){
+
+const SpeechRecognition =
+window.SpeechRecognition ||
+window.webkitSpeechRecognition;
+
+if(!SpeechRecognition){
+alert("Speech recognition not supported in this browser.");
+return;
+}
+
+const recognition = new SpeechRecognition();
+
+recognition.lang = "en-US";
+
+recognition.start();
+
+recognition.onresult = function(event){
+
+const transcript =
+event.results[0][0].transcript;
+
+document.getElementById("studentText").innerHTML =
+transcript;
+
+};
+
+}
+
+</script>
 </body>
 
 </html>
