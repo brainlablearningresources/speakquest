@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Luna's Forest Test 3</title>
+<title>Luna's Forest Test 4</title>
 
 <style>
 body{
@@ -82,8 +82,6 @@ button:disabled{
 </div>
 
 <script>
-const API_KEY = "AQ.Ab8RN6LwcUnAcl9gUVCi38InyT0NhCV9qCZaniHv_rWQItXPmQ";
-const MODEL = "gemini-2.0-flash";
 
 const chatArea = document.getElementById("chatArea");
 const speakButton = document.getElementById("speakButton");
@@ -102,72 +100,33 @@ function setButtonLoading(isLoading) {
 }
 
 async function askGemini(transcript) {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
 
-   const requestBody = {
-        system_instruction: {
-            parts: [
-                {
-                    text: `
-You are Luna, a friendly forest guide helping ESL learners practise English.
+const APPS_SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbzwC9t6wJe2GiG9hgnaesHee7VrKMKdyxB2m9C1uVKnEDgaJDEP2ItljdFiHpAGWb7tBA/exec";
 
-Rules:
-- Speak naturally.
-- Use simple English suitable for ESL learners.
-- Be encouraging.
-- Keep replies under 50 words.
-- Ask follow-up questions when appropriate.
-- Maintain a fantasy forest adventure atmosphere.
-`
-                }
-            ]
-        },
-        contents: [
-            {
-                role: "user",
-                parts: [
-                    {
-                        text: transcript
-                    }
-                ]
-            }
-        ],
-        generationConfig: {
-            temperature: 0.8,
-            maxOutputTokens: 120
-        }
-    };
-
-    console.log("Sending request to Gemini...");
-    console.log("Model:", MODEL);
-    console.log("Transcript:", transcript);
-    console.log("Request body:", requestBody);
-
-    const response = await fetch(url, {
+const response = await fetch(
+    APPS_SCRIPT_URL,
+    {
         method: "POST",
         headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
         },
-        body: JSON.stringify(requestBody)
-    });
-
-    const data = await response.json();
-
-    console.log("Gemini status:", response.status);
-    console.log("Gemini response:", data);
-
-    if (!response.ok) {
-        const errorMessage = data?.error?.message || "Unknown Gemini API error";
-        throw new Error(errorMessage);
+        body: JSON.stringify({
+            message: transcript
+        })
     }
+);
 
-    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+const data = await response.json();
 
-    if (!reply) {
-        throw new Error("Gemini returned no reply text.");
-    }
+if (!data.success) {
+    throw new Error(
+        data.error || "Unknown API error"
+    );
+}
 
-    return reply.trim();
+return data.reply;
+
 }
 
 function startListening() {
