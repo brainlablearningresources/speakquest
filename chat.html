@@ -101,13 +101,16 @@ function setButtonLoading(isLoading) {
 
 async function askGemini(transcript) {
 
-const APPS_SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbzwC9t6wJe2GiG9hgnaesHee7VrKMKdyxB2m9C1uVKnEDgaJDEP2ItljdFiHpAGWb7tBA/exec";
+const API_URL =
+"https://bazooka-panic-ungodly.ngrok-free.dev/chat";
 
 const response = await fetch(
-    APPS_SCRIPT_URL,
+    API_URL,
     {
         method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify({
             message: transcript
         })
