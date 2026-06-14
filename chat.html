@@ -113,9 +113,10 @@ const response = await fetch(
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-            message: transcript
-        })
+       body: JSON.stringify({
+    message: transcript,
+    history: conversationHistory
+})
     }
 );
 
