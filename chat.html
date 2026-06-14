@@ -86,6 +86,8 @@ button:disabled{
 const chatArea = document.getElementById("chatArea");
 const speakButton = document.getElementById("speakButton");
 
+const conversationHistory = [];
+
 function addMessage(text, sender) {
     const message = document.createElement("div");
     message.className = "message " + sender;
