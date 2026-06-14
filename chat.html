@@ -171,7 +171,15 @@ function startListening() {
 
             lastAiMessage.textContent = lunaReply;
 
-            console.log("Luna reply:", lunaReply);
+const speech = new SpeechSynthesisUtterance(
+    lunaReply
+);
+
+speech.lang = "en-GB";
+
+window.speechSynthesis.speak(speech);
+
+console.log("Luna reply:", lunaReply);
         } catch (error) {
             console.error("Gemini error:", error);
 
