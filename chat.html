@@ -167,8 +167,6 @@ conversationHistory.push({
 
 console.log("Student transcript:", transcript);
 
-        console.log("Student transcript:", transcript);
-
         addMessage(transcript, "student");
         addMessage("Luna is thinking...", "ai");
 
@@ -178,7 +176,12 @@ console.log("Student transcript:", transcript);
             const aiMessages = document.querySelectorAll(".message.ai");
             const lastAiMessage = aiMessages[aiMessages.length - 1];
 
-            lastAiMessage.textContent = lunaReply;
+           lastAiMessage.textContent = lunaReply;
+
+conversationHistory.push({
+    role: "assistant",
+    text: lunaReply
+});
 
 const speech = new SpeechSynthesisUtterance(
     lunaReply
