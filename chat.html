@@ -158,7 +158,14 @@ function startListening() {
     recognition.start();
 
     recognition.onresult = async function(event) {
-        const transcript = event.results[0][0].transcript.trim();
+       const transcript = event.results[0][0].transcript.trim();
+
+conversationHistory.push({
+    role: "user",
+    text: transcript
+});
+
+console.log("Student transcript:", transcript);
 
         console.log("Student transcript:", transcript);
 
