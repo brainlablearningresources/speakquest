@@ -113,8 +113,45 @@ h1{
     transition:0.3s;
 }
 
+.character-card{
+    background:#1f2c4a;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    transition:0.3s;
+}
+
 .character-card:hover{
     transform:translateY(-5px);
+}
+
+.nova-evolution{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.nova-stage{
+    background:#2a3960;
+    border-radius:15px;
+    padding:15px;
+    width:100px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.nova-stage:hover{
+    transform:translateY(-5px);
+}
+
+.nova-active{
+    border:2px solid #ffd84d;
+}
+
+.nova-locked{
+    opacity:0.5;
 }
 
 .avatar{
@@ -275,9 +312,32 @@ Nova grows as you complete missions and
 progress through the SpeakQuest Universe.
 </p>
 
-<p class="level">
-Current Evolution: Nova Core
-</p>
+<div class="nova-evolution">
+
+<div class="nova-stage nova-active">
+<div>🌟</div>
+<div>Core</div>
+</div>
+
+<div class="nova-stage nova-locked">
+<div>🤖</div>
+<div>Assistant</div>
+</div>
+
+<div class="nova-stage nova-locked">
+<div>🛡</div>
+<div>Guardian</div>
+</div>
+
+<div class="nova-stage nova-locked">
+<div>🚀</div>
+<div>Sentinel</div>
+</div>
+
+<div class="nova-stage nova-locked">
+<div>🌌</div>
+<div>Nexus</div>
+</div>
 
 </div>
 
