@@ -4,7 +4,7 @@
 <meta charset="UTF-9">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Luna's Forest Test 9</title>
+<title>Arrival Hub2</title>
 
 <style>
 body{
@@ -67,14 +67,22 @@ button:disabled{
 <body>
 
 <div class="header">
-    <h1>🌙 Luna's Forest</h1>
-    <p>Practice speaking with Luna</p>
+    <h1>🤖 Arrival Hub</h1>
+    <p>Network Orientation Terminal</p>
 </div>
 
 <div class="chat-area" id="chatArea">
-    <div class="message ai">
-        Hello adventurer! My name is Luna. What is your name?
-    </div>
+   <div class="message ai">
+    Hello.
+
+    My name is ARIA.
+
+    Welcome to the Network.
+
+    Before I grant access to additional sectors, I would like to learn a little about you.
+
+    What is your name?
+</div>
 </div>
 
 <div class="input-area">
@@ -169,7 +177,7 @@ conversationHistory.push({
 console.log("Student transcript:", transcript);
 
         addMessage(transcript, "student");
-        addMessage("Luna is thinking...", "ai");
+        addMessage("ARIA is thinking...", "ai");
 
         try {
             const lunaReply = await askGemini(transcript);
@@ -192,7 +200,7 @@ speech.lang = "en-GB";
 
 window.speechSynthesis.speak(speech);
 
-console.log("Luna reply:", lunaReply);
+console.log("ARIA reply:", lunaReply);
         } catch (error) {
             console.error("Gemini error:", error);
 
@@ -200,7 +208,7 @@ console.log("Luna reply:", lunaReply);
             const lastAiMessage = aiMessages[aiMessages.length - 1];
 
             lastAiMessage.textContent =
-                "Luna cannot answer right now. Please check the browser console for the Gemini error.";
+                "Aria cannot answer right now. Please check the browser console for the Gemini error.";
         }
     };
 
