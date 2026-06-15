@@ -70,8 +70,9 @@ h1{
 }
 
 .realm-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    display:flex;
+    flex-direction:column;
+    align-items:center;
     gap:20px;
 }
 
@@ -80,6 +81,7 @@ h1{
     border-radius:20px;
     padding:25px;
     text-align:center;
+    width:350px;
 }
 
 .realm-card h3{
@@ -157,6 +159,8 @@ Your Journey Begins With A Conversation.
 <h2 class="section-title">
 🚀 Mission Network
 </h2>
+
+<div class="realm-grid">
 
 <div class="realm-card">
 <h3>🛰 Arrival Hub</h3>
