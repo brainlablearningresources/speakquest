@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-9">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Arrival Hub4</title>
@@ -180,27 +180,27 @@ console.log("Student transcript:", transcript);
         addMessage("ARIA is thinking...", "ai");
 
         try {
-            const lunaReply = await askGemini(transcript);
+            const ariaReply = await askGemini(transcript);
 
             const aiMessages = document.querySelectorAll(".message.ai");
             const lastAiMessage = aiMessages[aiMessages.length - 1];
 
-           lastAiMessage.textContent = lunaReply;
+           lastAiMessage.textContent = ariaReply;
 
 conversationHistory.push({
     role: "assistant",
-    text: lunaReply
+    text: ariaReply
 });
 
 const speech = new SpeechSynthesisUtterance(
-    lunaReply
+    ariaReply
 );
 
 speech.lang = "en-GB";
 
 window.speechSynthesis.speak(speech);
 
-console.log("ARIA reply:", lunaReply);
+console.log("ARIA reply:", ariaReply);
         } catch (error) {
             console.error("Gemini error:", error);
 
