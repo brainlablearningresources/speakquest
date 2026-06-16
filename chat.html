@@ -230,6 +230,52 @@ console.log("ARIA reply:", ariaReply);
         setButtonLoading(false);
     };
 }
+
+async function completeMission() {
+
+    addMessage(
+        "Generating assessment report...",
+        "ai"
+    );
+
+    try {
+
+        const response = await fetch(
+            "https://speakquestbackend.onrender.com/assess",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    transcript: conversationHistory
+                })
+            }
+        );
+
+        const data =
+            await response.json();
+
+        if(!data.success){
+            throw new Error(data.error);
+        }
+
+        addMessage(
+            data.report,
+            "ai"
+        );
+
+    } catch(error){
+
+        addMessage(
+            "Assessment generation failed.",
+            "ai"
+        );
+
+        console.error(error);
+    }
+}
+    
 </script>
 
 </body>
