@@ -111,6 +111,7 @@ conversationHistory.push({
 function addMessage(text, sender) {
     const message = document.createElement("div");
     message.className = "message " + sender;
+    message.style.whiteSpace = "pre-wrap";
     message.textContent = text;
     chatArea.appendChild(message);
     message.scrollIntoView({ behavior: "smooth", block: "end" });
