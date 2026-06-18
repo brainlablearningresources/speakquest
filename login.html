@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SpeakQuest Login</title>
+
+<style>
+
+body{
+    background:#101728;
+    color:white;
+    font-family:Segoe UI, Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.login-box{
+    background:#1f2c4a;
+    padding:40px;
+    border-radius:20px;
+    width:350px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    margin-bottom:20px;
+    border:none;
+    border-radius:10px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#6f7cff;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h2>SpeakQuest</h2>
+
+<p>Enter the Network</p>
+
+<input
+    id="studentName"
+    placeholder="Full Name"
+>
+
+<input
+    id="studentId"
+    placeholder="Matric Number"
+>
+
+<button onclick="login()">
+    Enter Network
+</button>
+
+</div>
+
+<script>
+
+function login(){
+
+const studentName =
+document.getElementById(
+"studentName"
+).value.trim();
+
+const studentId =
+document.getElementById(
+"studentId"
+).value.trim();
+
+if(
+studentName === "" ||
+studentId === ""
+){
+alert(
+"Please enter your name and matric number."
+);
+return;
+}
+
+localStorage.setItem(
+"studentName",
+studentName
+);
+
+localStorage.setItem(
+"studentId",
+studentId
+);
+
+window.location.href =
+"chat.html";
+
+}
+
+</script>
+
+</body>
+</html>
