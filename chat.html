@@ -277,9 +277,11 @@ async function completeMission() {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    transcript: conversationHistory
-                })
+               body: JSON.stringify({
+    studentName: studentName,
+    studentId: studentId,
+    transcript: conversationHistory
+})
             }
         );
 
