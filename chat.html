@@ -68,7 +68,9 @@ button:disabled{
 
 <div class="header">
     <h1>🤖 Arrival Hub</h1>
-    <p>Network Orientation Terminal</p>
+    <p id="studentDisplay">
+Network Orientation Terminal
+</p>
 </div>
 
 <div class="chat-area" id="chatArea">
@@ -99,6 +101,24 @@ button:disabled{
 
 <script>
 
+const studentName =
+localStorage.getItem(
+"studentName"
+);
+
+const studentId =
+localStorage.getItem(
+"studentId"
+);
+
+if(
+!studentName ||
+!studentId
+){
+window.location.href =
+"login.html";
+}    
+    
 const chatArea = document.getElementById("chatArea");
 const speakButton = document.getElementById("speakButton");
 
