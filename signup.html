@@ -112,6 +112,9 @@ email,
 password
 });
 
+console.log("AUTH:", data);
+console.log("AUTH ERROR:", error);
+
 if(error){
 alert(error.message);
 return;
@@ -119,6 +122,7 @@ return;
 
 const user = data.user;
 
+const profileResult =
 await supabaseClient
 .from("profiles")
 .insert([
@@ -130,11 +134,9 @@ role: role
 }
 ]);
 
-alert("Account created. Check your email.");
+console.log("PROFILE RESULT:", profileResult);
 
-window.location.href =
-"login.html";
-
+alert("Account created");
 }
 
 </script>
