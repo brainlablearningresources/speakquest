@@ -107,9 +107,9 @@ const role =
 document.getElementById("role").value;
 
 const { data, error } =
-await supabaseClient
-.from("profiles")
-.insert([
+await supabaseClient.auth.signUp({
+email,
+password
 });
 
 if(error){
@@ -117,23 +117,20 @@ alert(error.message);
 return;
 }
 
-const user =
-data.user;
+const user = data.user;
 
-await supabase
+await supabaseClient
 .from("profiles")
 .insert([
 {
-id:user.id,
-email:email,
-full_name:full_name,
-role:role
+id: user.id,
+email: email,
+full_name: full_name,
+role: role
 }
 ]);
 
-alert(
-"Account created. Check your email."
-);
+alert("Account created. Check your email.");
 
 window.location.href =
 "login.html";
