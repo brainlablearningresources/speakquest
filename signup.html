@@ -127,12 +127,19 @@ await supabaseClient
 .from("profiles")
 .insert([
 {
-id:user.id,
-email:email,
-full_name:full_name,
-role:role
+id: user.id,
+email: email,
+full_name: full_name,
+role: role
 }
 ]);
+
+console.log("PROFILE RESULT:", profileResult);
+
+if(profileResult.error){
+    alert(profileResult.error.message);
+    return;
+}
 
 console.log("PROFILE RESULT:", profileResult);
 
