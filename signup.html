@@ -137,7 +137,15 @@ role: role
 console.log("PROFILE RESULT:", profileResult);
 
 if(profileResult.error){
-    alert(profileResult.error.message);
+
+    console.log("FULL ERROR:", profileResult.error);
+
+    alert(
+        profileResult.error.message +
+        "\n\n" +
+        JSON.stringify(profileResult.error)
+    );
+
     return;
 }
 
