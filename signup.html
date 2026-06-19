@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SpeakQuest Sign Up</title>
+
+<style>
+
+body{
+    background:#101728;
+    color:white;
+    font-family:Segoe UI, Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.box{
+    background:#1f2c4a;
+    padding:40px;
+    border-radius:20px;
+    width:360px;
+}
+
+input, select{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:10px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#6f7cff;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+h2{
+    text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Create Account</h2>
+
+<input id="name" placeholder="Full Name">
+
+<input id="email" type="email" placeholder="Email">
+
+<input id="password" type="password" placeholder="Password">
+
+<select id="role">
+    <option value="student">Student</option>
+    <option value="teacher">Teacher</option>
+</select>
+
+<button onclick="signUp()">
+Create Account
+</button>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script>
+
+const SUPABASE_URL =
+"https://ecacycipqjvfskfhgkyx.supabase.co";
+
+const SUPABASE_KEY =
+"YOUR_PUBLISHABLE_KEY";
+
+const supabase =
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+async function signUp(){
+
+const full_name =
+document.getElementById("name").value;
+
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
+
+const role =
+document.getElementById("role").value;
+
+const { data, error } =
+await supabase.auth.signUp({
+email,
+password
+});
+
+if(error){
+alert(error.message);
+return;
+}
+
+const user =
+data.user;
+
+await supabase
+.from("profiles")
+.insert([
+{
+id:user.id,
+email:email,
+full_name:full_name,
+role:role
+}
+]);
+
+alert(
+"Account created. Check your email."
+);
+
+window.location.href =
+"login.html";
+
+}
+
+</script>
+
+</body>
+</html>
