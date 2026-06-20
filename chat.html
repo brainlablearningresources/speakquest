@@ -82,7 +82,10 @@ SUPABASE_URL,
 SUPABASE_KEY
 );
 
-checkSession();
+window.addEventListener(
+"DOMContentLoaded",
+checkSession
+);
 
 async function checkSession(){
 
