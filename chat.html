@@ -285,9 +285,14 @@ async function completeMission() {
         "ai"
     );
 
-    try {
+   try {
 
-        const response = await fetch(
+const {
+data: { session }
+} =
+await supabaseClient.auth.getSession();
+
+const response = await fetch(
             "https://speakquestbackend.onrender.com/assess",
             {
                 method: "POST",
