@@ -140,29 +140,6 @@ Network Orientation Terminal
 </div>
 
 <script>
-
-const studentName =
-localStorage.getItem(
-"studentName"
-);
-
-const studentId =
-localStorage.getItem(
-"studentId"
-);
-
-if(
-!studentName ||
-!studentId
-){
-window.location.href =
-"login.html";
-}    
-
-document.getElementById(
-"studentDisplay"
-).textContent =
-"Agent: " + studentName;
     
 const chatArea = document.getElementById("chatArea");
 const speakButton = document.getElementById("speakButton");
