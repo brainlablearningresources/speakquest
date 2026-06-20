@@ -300,8 +300,8 @@ const response = await fetch(
                     "Content-Type": "application/json"
                 },
                body: JSON.stringify({
-    studentName: studentName,
-    studentId: studentId,
+    studentName: session.user.email,
+    studentId: session.user.id,
     transcript: conversationHistory
 })
             }
