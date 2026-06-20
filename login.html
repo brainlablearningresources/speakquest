@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SpeakQuest Login5</title>
+<title>SpeakQuest Login6</title>
 
 <style>
 
@@ -107,38 +107,29 @@ SUPABASE_KEY
     
 async function login(){
 
-const studentName =
+const email =
 document.getElementById(
-"studentName"
+"email"
 ).value.trim();
 
-const studentId =
+const password =
 document.getElementById(
-"studentId"
+"password"
 ).value.trim();
 
-if(
-studentName === "" ||
-studentId === ""
-){
-alert(
-"Please enter your name and matric number."
-);
+const { data, error } =
+await supabaseClient.auth.signInWithPassword({
+email,
+password
+});
+
+if(error){
+alert(error.message);
 return;
 }
 
-localStorage.setItem(
-"studentName",
-studentName
-);
-
-localStorage.setItem(
-"studentId",
-studentId
-);
-
 window.location.href =
-"chat.html";
+"characters.html";
 
 }
 
