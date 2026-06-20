@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Character Hall9</title>
+<title>Character Hall10</title>
 
 <style>
 
@@ -208,5 +208,32 @@ Locked
 
 </div>
 
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+"https://ecacycipqjvfskfhgkyx.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_m7St5qWjV5e4xnfOYCx1MA_45N_IQHW";
+
+const supabaseClient =
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+async function logout(){
+
+await supabaseClient.auth.signOut();
+
+window.location.href =
+"login.html";
+
+}
+
+</script>    
+    
 </body>
 </html>
