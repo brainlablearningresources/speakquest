@@ -91,7 +91,23 @@ button{
 
 <script>
 
-function login(){
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+"https://ecacycipqjvfskfhgkyx.supabase.co";
+
+const SUPABASE_KEY =
+"YOUR_SAME_PUBLISHABLE_KEY_FROM_SIGNUP";
+
+const supabaseClient =
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);    
+    
+async function login(){
 
 const studentName =
 document.getElementById(
