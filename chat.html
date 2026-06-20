@@ -66,6 +66,46 @@ button:disabled{
 
 <body>
 
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+"https://ecacycipqjvfskfhgkyx.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_m7St5qWjV5e4xnfOYCx1MA_45N_IQHW";
+
+const supabaseClient =
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+checkSession();
+
+async function checkSession(){
+
+const {
+data: { session }
+} =
+await supabaseClient.auth.getSession();
+
+if(!session){
+window.location.href =
+"login.html";
+return;
+}
+
+document.getElementById(
+"studentDisplay"
+).textContent =
+"Agent: " + session.user.email;
+
+}
+
+</script>    
+    
 <div class="header">
     <h1>🤖 Arrival Hub</h1>
     <p id="studentDisplay">
