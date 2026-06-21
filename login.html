@@ -128,8 +128,26 @@ alert(error.message);
 return;
 }
 
-window.location.href =
-"characters.html";
+const userId = data.user.id;
+
+const { data: profile, error: profileError } =
+await supabaseClient
+.from("profiles")
+.select("role")
+.eq("id", userId)
+.single();
+
+if(profileError){
+    alert(profileError.message);
+    return;
+}
+
+if(profile.role === "teacher"){
+    window.location.href = "teacher_dashboard.html";
+}
+else{
+    window.location.href = "characters.html";
+}
 
 }
 
