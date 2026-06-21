@@ -291,9 +291,62 @@ window.location.href =
 
 async function joinClass(){
 
-alert("Join Class button works!");
+const code =
+document.getElementById(
+"joinCode"
+).value.trim();
 
-}    
+if(!code){
+alert("Enter class code");
+return;
+}
+
+const {
+data: { user }
+} =
+await supabaseClient.auth.getUser();
+
+const { data: cls, error } =
+await supabaseClient
+.from("classes")
+.select("*")
+.eq("class_code", code)
+.single();
+
+if(error){
+
+alert("Class not found");
+
+return;
+
+}
+
+const result =
+await supabaseClient
+.from("class_members")
+.insert([
+{
+class_id: cls.id,
+student_id: user.id
+}
+]);
+
+if(result.error){
+
+console.log(result.error);
+
+alert(result.error.message);
+
+return;
+
+}
+
+alert(
+"Successfully joined " +
+cls.class_name
+);
+
+} 
 
 </script>
     
