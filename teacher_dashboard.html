@@ -1,14 +1,138 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Teacher Dashboard</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Segoe UI, Arial, sans-serif;
+    background:#081633;
+    color:white;
+}
+
+.header{
+    padding:25px;
+    text-align:center;
+}
+
+.header h1{
+    margin:0;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:#1f2c4a;
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    margin-top:10px;
+    margin-bottom:15px;
+}
+
+button{
+    background:#6f7cff;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.class-list{
+    margin-top:20px;
+}
+
+.class-item{
+    background:#152445;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:10px;
+}
+
+.logout{
+    position:absolute;
+    top:20px;
+    left:20px;
+}
+
+</style>
 </head>
 
 <body>
 
-<h1>Teacher Dashboard</h1>
+<button class="logout">
+Logout
+</button>
 
-<p>You are logged in as a teacher.</p>
+<div class="header">
+
+<h1>🎓 Teacher Control Center</h1>
+
+<p>
+Create classes and manage your students
+</p>
+
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Create New Class</h2>
+
+<input
+id="className"
+placeholder="Example: ELD1134 Grammar II"
+>
+
+<button>
+Create Class
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>My Classes</h2>
+
+<div class="class-list">
+
+<div class="class-item">
+ELD1134 Grammar II
+<br><br>
+Class Code:
+<b>ABCD12</b>
+</div>
+
+<div class="class-item">
+CES1343 Speech Communication
+<br><br>
+Class Code:
+<b>XYZ789</b>
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </body>
 </html>
