@@ -154,6 +154,7 @@ const {
 data: { user }
 } =
 await supabaseClient.auth.getUser();
+console.log("CURRENT USER:", user);
 
 const classCode =
 Math.random()
