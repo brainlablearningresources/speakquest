@@ -121,6 +121,18 @@ No students enrolled yet
     
 <script>
 
+const SUPABASE_URL =
+"https://ecacycipqjvfskfhgkyx.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_m7St5qWjV5e4xnfOYCx1MA_45N_IQHW";
+
+const supabaseClient =
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+    
 const params =
 new URLSearchParams(
 window.location.search
