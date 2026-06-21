@@ -173,7 +173,16 @@ teacher_id: user.id
 ]);
 
 if(result.error){
-    alert(result.error.message);
+
+    console.log(
+        "FULL ERROR:",
+        result.error
+    );
+
+    alert(
+        result.error.message
+    );
+
     return;
 }
 
