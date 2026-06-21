@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Details</title>
+<title>Class Details2</title>
 
 <style>
 
@@ -141,15 +141,43 @@ window.location.search
 const classCode =
 params.get("code");
 
+async function loadClass(){
+
+const { data, error } =
+await supabaseClient
+.from("classes")
+.select("*")
+.eq("class_code", classCode)
+.single();
+
+if(error){
+
+console.log(error);
+
 document.getElementById(
 "classTitle"
 ).innerHTML =
-"Class";
+"Class Not Found";
+
+return;
+
+}
+
+document.getElementById(
+"classTitle"
+).innerHTML =
+data.class_name;
 
 document.getElementById(
 "classCode"
 ).innerHTML =
-"Class Code: <b>" + classCode + "</b>";
+"Class Code: <b>" +
+data.class_code +
+"</b>";
+
+}
+
+loadClass();
 
 </script>
 
