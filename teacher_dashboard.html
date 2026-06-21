@@ -222,10 +222,24 @@ data.forEach(cls => {
 
 classList.innerHTML += `
 <div class="class-item">
-${cls.class_name}
-<br><br>
+
+<h3>${cls.class_name}</h3>
+
+<p>
 Class Code:
 <b>${cls.class_code}</b>
+</p>
+
+<button
+onclick="
+event.stopPropagation();
+window.location.href=
+'class_details.html?code=${cls.class_code}'
+"
+>
+Manage Class
+</button>
+
 </div>
 `;
 
