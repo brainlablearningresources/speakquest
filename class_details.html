@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Class Details</title>
+</head>
+
+<body>
+
+<h1>Class Details</h1>
+
+<div id="info"></div>
+
+<script>
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const code =
+params.get("code");
+
+document.getElementById(
+"info"
+).innerHTML =
+"Class Code: " + code;
+
+</script>
+
+</body>
+</html>
