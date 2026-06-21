@@ -205,6 +205,60 @@ window.location.href =
 
 }    
 
+async function loadClasses(){
+
+const {
+data: { user }
+} =
+await supabaseClient.auth.getUser();
+
+const { data, error } =
+await supabaseClient
+.from("classes")
+.select("*")
+.eq("teacher_id", user.id);
+
+if(error){
+    console.log(error);
+    return;
+}
+
+const classList =
+document.getElementById(
+"classList"
+);
+
+classList.innerHTML = "";
+
+data.forEach(cls => {
+
+classList.innerHTML += `
+<div class="class-item">
+
+<h3>${cls.class_name}</h3>
+
+<p>
+Class Code:
+<b>${cls.class_code}</b>
+</p>
+
+<button
+onclick="
+event.stopPropagation();
+window.location.href=
+'class_details.html?code=${cls.class_code}'
+"
+>
+Manage Class
+</button>
+
+</div>
+`;
+
+});
+
+}
+    
 await supabaseClient.auth.signOut();
 
 window.location.href =
