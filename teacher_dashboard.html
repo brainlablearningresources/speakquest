@@ -102,7 +102,7 @@ id="className"
 placeholder="Example: ELD1134 Grammar II"
 >
 
-<button>
+<button onclick="createClass()">
 Create Class
 </button>
 
@@ -112,27 +112,120 @@ Create Class
 
 <h2>My Classes</h2>
 
-<div class="class-list">
+<div
+id="classList"
+class="class-list"
+>
 
+</div>
+</div>
+
+</div>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+"https://ecacycipqjvfskfhgkyx.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_m7St5qWjV5e4xnfOYCx1MA_45N_IQHW";
+
+const supabaseClient =
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+async function createClass(){
+
+const className =
+document.getElementById(
+"className"
+).value.trim();
+
+if(!className){
+    alert("Enter class name");
+    return;
+}
+
+const {
+data: { user }
+} =
+await supabaseClient.auth.getUser();
+
+const classCode =
+Math.random()
+.toString(36)
+.substring(2,8)
+.toUpperCase();
+
+const result =
+await supabaseClient
+.from("classes")
+.insert([
+{
+class_name: className,
+class_code: classCode,
+teacher_id: user.id
+}
+]);
+
+if(result.error){
+    alert(result.error.message);
+    return;
+}
+
+alert("Class created");
+
+loadClasses();
+
+}
+
+async function loadClasses(){
+
+const {
+data: { user }
+} =
+await supabaseClient.auth.getUser();
+
+const { data, error } =
+await supabaseClient
+.from("classes")
+.select("*")
+.eq("teacher_id", user.id);
+
+if(error){
+    console.log(error);
+    return;
+}
+
+const classList =
+document.getElementById(
+"classList"
+);
+
+classList.innerHTML = "";
+
+data.forEach(cls => {
+
+classList.innerHTML += `
 <div class="class-item">
-ELD1134 Grammar II
+${cls.class_name}
 <br><br>
 Class Code:
-<b>ABCD12</b>
+<b>${cls.class_code}</b>
 </div>
+`;
 
-<div class="class-item">
-CES1343 Speech Communication
-<br><br>
-Class Code:
-<b>XYZ789</b>
-</div>
+});
 
-</div>
+}
 
-</div>
+loadClasses();
 
-</div>
-
+</script>    
+    
 </body>
 </html>
