@@ -1,14 +1,121 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Class Details</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Segoe UI, Arial, sans-serif;
+    background:#081633;
+    color:white;
+}
+
+.header{
+    text-align:center;
+    padding:30px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:#1f2c4a;
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:25px;
+}
+
+.code-box{
+    background:#152445;
+    padding:15px;
+    border-radius:12px;
+    margin-top:15px;
+}
+
+.student-box{
+    background:#152445;
+    padding:15px;
+    border-radius:12px;
+    margin-top:10px;
+}
+
+button{
+    background:#6f7cff;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.back-btn{
+    position:absolute;
+    top:20px;
+    left:20px;
+}
+
+</style>
 </head>
 
 <body>
 
-<h1>Class Details</h1>
+<button
+class="back-btn"
+onclick="window.location.href='teacher_dashboard.html'"
+>
+← Back
+</button>
 
-<div id="info"></div>
+<div class="header">
+
+<h1>📚 Class Details</h1>
+
+<p>
+Manage students and class information
+</p>
+
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2 id="classTitle">
+Loading...
+</h2>
+
+<div
+id="classCode"
+class="code-box"
+>
+Loading...
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Students</h2>
+
+<div
+id="studentList"
+>
+<div class="student-box">
+No students enrolled yet
+</div>
+</div>
+
+</div>
+
+</div>
 
 <script>
 
@@ -17,13 +124,18 @@ new URLSearchParams(
 window.location.search
 );
 
-const code =
+const classCode =
 params.get("code");
 
 document.getElementById(
-"info"
+"classTitle"
 ).innerHTML =
-"Class Code: " + code;
+"Class";
+
+document.getElementById(
+"classCode"
+).innerHTML =
+"Class Code: <b>" + classCode + "</b>";
 
 </script>
 
