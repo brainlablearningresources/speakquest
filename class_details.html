@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Details2</title>
+<title>Class Details3</title>
 
 <style>
 
@@ -138,8 +138,8 @@ new URLSearchParams(
 window.location.search
 );
 
-const classCode =
-params.get("code");
+const classId =
+params.get("id");
 
 async function loadClass(){
 
@@ -147,7 +147,7 @@ const { data, error } =
 await supabaseClient
 .from("classes")
 .select("*")
-.eq("class_code", classCode)
+.eq("id", classId)
 .single();
 
 if(error){
