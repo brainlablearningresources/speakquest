@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Details4</title>
+<title>Class Details5</title>
 
 <style>
 
@@ -182,7 +182,53 @@ loadStudents();
 
 async function loadStudents(){
 
-console.log("LOAD STUDENTS STARTED");
+const { data, error } =
+await supabaseClient
+.from("class_members")
+.select(`
+student_id,
+profiles (
+full_name,
+email
+)
+`)
+.eq("class_id", classId);
+
+console.log("STUDENTS:", data);
+console.log("ERROR:", error);
+
+const studentList =
+document.getElementById(
+"studentList"
+);
+
+studentList.innerHTML = "";
+
+if(!data || data.length === 0){
+
+studentList.innerHTML = `
+<div class="student-box">
+No students enrolled yet
+</div>
+`;
+
+return;
+
+}
+
+data.forEach(student => {
+
+studentList.innerHTML += `
+<div class="student-box">
+
+<b>
+${student.profiles?.full_name || "Unknown Student"}
+</b>
+
+</div>
+`;
+
+});
 
 }
     
