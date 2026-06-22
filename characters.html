@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Character Hall19</title>
+<title>Character Hall20</title>
 
 <style>
 
@@ -359,7 +359,10 @@ await supabaseClient.auth.getUser();
 const { data, error } =
 await supabaseClient
 .from("class_members")
-.select("*")
+.select(`
+*,
+classes(*)
+`)
 .eq("student_id", user.id);
 
 const container =
