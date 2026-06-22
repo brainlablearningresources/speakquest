@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Character Hall18</title>
+<title>Character Hall19</title>
 
 <style>
 
@@ -362,8 +362,31 @@ await supabaseClient
 .select("*")
 .eq("student_id", user.id);
 
-console.log("DATA:", data);
-console.log("ERROR:", error);
+const container =
+document.getElementById("myClasses");
+
+container.innerHTML = "";
+
+if(data.length === 0){
+container.innerHTML =
+"No classes joined yet";
+return;
+}
+
+data.forEach(item => {
+
+container.innerHTML += `
+<div style="
+background:#101728;
+padding:15px;
+margin:10px 0;
+border-radius:10px;
+">
+Class ID: ${item.class_id}
+</div>
+`;
+
+});
 }
 
 loadMyClasses();
