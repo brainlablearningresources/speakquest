@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Character Hall16</title>
+<title>Character Hall17</title>
 
 <style>
 
@@ -349,6 +349,22 @@ cls.class_name
 
 } 
 
+async function loadMyClasses(){
+
+const {
+data: { user }
+} =
+await supabaseClient.auth.getUser();
+
+console.log(
+"CURRENT STUDENT:",
+user.id
+);
+
+}
+
+loadMyClasses();
+    
 </script>
     
 </body>
