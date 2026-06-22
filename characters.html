@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Character Hall27</title>
+<title>Character Hall28</title>
 
 <style>
 
@@ -421,7 +421,11 @@ padding:15px;
 margin:10px 0;
 border-radius:10px;
 ">
-${item.classes?.class_name || "Unknown Class"}
+<h3>${item.classes?.class_name || "Unknown Class"}</h3>
+
+<button onclick="openClass(${item.class_id})">
+Open Class
+</button>
 </div>
 `;
 
@@ -429,6 +433,19 @@ ${item.classes?.class_name || "Unknown Class"}
 }
 
 loadMyClasses();
+
+function openClass(classId){
+
+localStorage.setItem(
+"currentClassId",
+classId
+);
+
+alert(
+"Opening class " + classId
+);
+
+}    
     
 </script>
     
