@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Details6</title>
+<title>Class Details7</title>
 
 <style>
 
@@ -210,16 +210,17 @@ return;
 
 for(const member of members){
 
-const { data: profile } =
+const { data: profile, error: profileError } =
 await supabaseClient
 .from("profiles")
 .select("*")
-.eq("id", member.student_id)
-.single();
+.eq("id", member.student_id);
 
+console.log("PROFILE:", profile);
+console.log("PROFILE ERROR:", profileError);
 studentList.innerHTML += `
 <div class="student-box">
-<b>${profile?.full_name || "Unknown Student"}</b>
+<b>${profile?.[0]?.full_name || "Unknown Student"}</b>
 </div>
 `;
 
