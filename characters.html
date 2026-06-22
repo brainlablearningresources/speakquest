@@ -360,6 +360,8 @@ data: { user }
 } =
 await supabaseClient.auth.getUser();
 
+console.log("USER:", user);
+    
 const { data, error } =
 await supabaseClient
 .from("class_members")
@@ -370,6 +372,8 @@ classes(*)
 .eq("student_id", user.id);
 
 console.log("QUERY FINISHED");    
+console.log("DATA:", data);
+console.log("ERROR:", error);
 
 const container =
 document.getElementById("myClasses");
