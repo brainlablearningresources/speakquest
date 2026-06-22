@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Details5</title>
+<title>Class Details6</title>
 
 <style>
 
@@ -182,29 +182,21 @@ loadStudents();
 
 async function loadStudents(){
 
-const { data, error } =
+const { data: members, error } =
 await supabaseClient
 .from("class_members")
-.select(`
-student_id,
-profiles (
-full_name,
-email
-)
-`)
+.select("*")
 .eq("class_id", classId);
 
-console.log("STUDENTS:", data);
+console.log("MEMBERS:", members);
 console.log("ERROR:", error);
 
 const studentList =
-document.getElementById(
-"studentList"
-);
+document.getElementById("studentList");
 
 studentList.innerHTML = "";
 
-if(!data || data.length === 0){
+if(!members || members.length === 0){
 
 studentList.innerHTML = `
 <div class="student-box">
@@ -216,19 +208,22 @@ return;
 
 }
 
-data.forEach(student => {
+for(const member of members){
+
+const { data: profile } =
+await supabaseClient
+.from("profiles")
+.select("*")
+.eq("id", member.student_id)
+.single();
 
 studentList.innerHTML += `
 <div class="student-box">
-
-<b>
-${student.profiles?.full_name || "Unknown Student"}
-</b>
-
+<b>${profile?.full_name || "Unknown Student"}</b>
 </div>
 `;
 
-});
+}
 
 }
     
