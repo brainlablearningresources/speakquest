@@ -303,9 +303,17 @@ const response = await fetch(
                     "Content-Type": "application/json"
                 },
                body: JSON.stringify({
+
     studentName: session.user.email,
+
     studentId: session.user.id,
+
+    classId: localStorage.getItem("currentClassId"),
+
+    mission: "Arrival Hub",
+
     transcript: conversationHistory
+
 })
             }
         );
