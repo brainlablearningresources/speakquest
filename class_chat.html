@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub2</title>
+<title>Class Mission - Arrival Hub3</title>
 
 <style>
 body{
@@ -325,10 +325,14 @@ const response = await fetch(
             throw new Error(data.error);
         }
 
-        addMessage(
-            data.report,
-            "ai"
-        );
+       addMessage(
+`✅ Mission submitted successfully.
+
+Your teacher has received your submission.
+
+Please wait for your teacher's feedback before the next mission is unlocked.`,
+"ai"
+);
 
     } catch(error){
 
