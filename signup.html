@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SpeakQuest Sign Up9</title>
+<title>SpeakQuest Sign Up10</title>
 
 <style>
 
@@ -136,43 +136,12 @@ alert(error.message);
 return;
 }
 
-const user = data.user;
+alert(
+"Account created successfully!\n\nPlease check your email to verify your account before logging in."
+);
 
-const profileResult =
-await supabaseClient
-.from("profiles")
-.insert([
-{
-id: user.id,
-email: email,
-full_name: full_name,
-role: role
-}
-]);
+window.location.href = "login.html";
 
-console.log("PROFILE RESULT:", profileResult);
-
-if(profileResult.error){
-
-    console.log("FULL ERROR:", profileResult.error);
-
-    alert(
-        profileResult.error.message +
-        "\n\n" +
-        JSON.stringify(profileResult.error)
-    );
-
-    return;
-}
-
-console.log("PROFILE RESULT:", profileResult);
-
-if(profileResult.error){
-alert(profileResult.error.message);
-console.log(profileResult.error);
-}
-
-alert("Account created");
 }
 
 </script>
