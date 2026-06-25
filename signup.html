@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SpeakQuest Sign Up10</title>
+<title>SpeakQuest Sign Up11</title>
 
 <style>
 
@@ -113,6 +113,11 @@ document.getElementById("password").value;
 const role =
 document.getElementById("role").value;
 
+if (!full_name || !email || !password) {
+    alert("Please fill in all fields.");
+    return;
+}
+    
 const { data, error } =
 await supabaseClient.auth.signUp({
     email: email,
