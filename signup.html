@@ -115,8 +115,16 @@ document.getElementById("role").value;
 
 const { data, error } =
 await supabaseClient.auth.signUp({
-email,
-password
+    email: email,
+    password: password,
+    options: {
+        data: {
+            full_name: full_name,
+            role: role
+        },
+        emailRedirectTo:
+        "https://brainlablearningresources.github.io/speakquest/login.html"
+    }
 });
 
 console.log("FULL AUTH DATA");
