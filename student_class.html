@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Class2</title>
+<title>Student Class3</title>
 
 <style>
 
@@ -68,6 +68,47 @@ SUPABASE_URL,
 SUPABASE_KEY
 );
 
+const classId =
+localStorage.getItem(
+"currentClassId"
+);
+
+console.log("CLASS ID:", classId);
+
+loadClass();
+
+async function loadClass(){
+
+const { data, error } =
+await supabaseClient
+.from("classes")
+.select("*")
+.eq("id", classId)
+.single();
+
+console.log("CLASS DATA:", data);
+console.log("CLASS ERROR:", error);
+
+if(error){
+
+alert(error.message);
+
+return;
+
+}
+
+document.getElementById(
+"classTitle"
+).innerHTML =
+"📚 " + data.class_name;
+
+document.getElementById(
+"classCode"
+).innerHTML =
+"Class Code: " + data.class_code;
+
+}    
+    
 </script>
 
 </body>
