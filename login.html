@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SpeakQuest Login6</title>
+<title>SpeakQuest Login7</title>
 
 <style>
 
@@ -128,21 +128,48 @@ alert(error.message);
 return;
 }
 
+console.log("LOGIN SUCCESS");
+console.log(data.user);
+    
 const userId = data.user.id;
+const userFullName =
+data.user.user_metadata.full_name;
 
-const { data: profile, error: profileError } =
+const userRole =
+data.user.user_metadata.role;
+
+const userEmail =
+data.user.email;
+    
+const { data: profile } =
 await supabaseClient
 .from("profiles")
-.select("role")
+.select("*")
 .eq("id", userId)
-.single();
+.maybeSingle();
 
-if(profileError){
-    alert(profileError.message);
-    return;
+if (!profile) {
+
+    const { error: insertError } =
+    await supabaseClient
+    .from("profiles")
+    .insert([
+        {
+    id: userId,
+    email: userEmail,
+    full_name: userFullName,
+    role: userRole
 }
+    ]);
 
-if(profile.role === "teacher"){
+    if (insertError) {
+        alert(insertError.message);
+        return;
+    }
+
+}    
+
+if(userRole === "teacher"){
     window.location.href = "teacher_dashboard.html";
 }
 else{
