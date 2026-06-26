@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Details7</title>
+<title>Class Details8</title>
 
 <style>
 
@@ -219,14 +219,27 @@ await supabaseClient
 console.log("PROFILE:", profile);
 console.log("PROFILE ERROR:", profileError);
 studentList.innerHTML += `
-<div class="student-box">
+<div
+class="student-box"
+onclick="openAssessment('${member.student_id}')"
+style="cursor:pointer;"
+>
 <b>${profile?.[0]?.full_name || "Unknown Student"}</b>
+<br>
+<small>Click to review assessment</small>
 </div>
 `;
 
 }
 
 }
+
+function openAssessment(studentId){
+
+window.location.href =
+`student_assessment.html?classId=${classId}&studentId=${studentId}`;
+
+}    
     
 </script>
 
