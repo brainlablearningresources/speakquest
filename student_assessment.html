@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Student Assessment4</title>
+<title>Student Assessment5</title>
 
 <style>
 
@@ -240,7 +240,42 @@ data.ai_report;
 
 }
 
-</script>    
+async function saveReport(){
+
+const editedReport =
+document.getElementById(
+"report"
+).value;
+
+const { error } =
+await supabaseClient
+.from("student_assessments")
+.update({
+
+ai_report: editedReport
+
+})
+.eq("id", assessmentId);
+
+if(error){
+
+console.log(error);
+
+alert(
+"Failed to save assessment."
+);
+
+return;
+
+}
+
+alert(
+"✅ Assessment saved successfully."
+);
+
+}
+
+</script>  
     
 </body>
 </html>
