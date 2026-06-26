@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Assessment</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#081633;
+    color:white;
+    font-family:Segoe UI, Arial, sans-serif;
+}
+
+.header{
+    text-align:center;
+    padding:30px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:#1f2c4a;
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:25px;
+}
+
+.back-btn{
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:#6f7cff;
+    color:white;
+    border:none;
+    border-radius:10px;
+    padding:12px 20px;
+    cursor:pointer;
+}
+
+.info-row{
+    margin:12px 0;
+    font-size:17px;
+}
+
+.label{
+    color:#8fb3ff;
+    font-weight:bold;
+}
+
+.content-box{
+    margin-top:20px;
+    background:#152445;
+    border-radius:15px;
+    padding:20px;
+    white-space:pre-wrap;
+    line-height:1.7;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<button
+class="back-btn"
+onclick="history.back()"
+>
+← Back
+</button>
+
+<div class="header">
+
+<h1>
+📝 Student Assessment
+</h1>
+
+<p>
+Teacher Review Portal
+</p>
+
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2 id="studentName">
+Loading...
+</h2>
+
+<div class="info-row">
+<span class="label">Mission:</span>
+<span id="mission">
+Loading...
+</span>
+</div>
+
+<div class="info-row">
+<span class="label">Status:</span>
+<span id="status">
+Loading...
+</span>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>
+🤖 AI Assessment Report
+</h2>
+
+<div
+id="report"
+class="content-box"
+>
+
+Loading report...
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
