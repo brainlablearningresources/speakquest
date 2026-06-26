@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub5</title>
+<title>Class Mission - Arrival Hub6</title>
 
 <style>
 body{
@@ -136,11 +136,105 @@ Network Orientation Terminal
         🎤 Start Speaking
     </button>
 
-    <button onclick="completeMission()">
-        📋 Complete Mission
-    </button>
+   <button onclick="confirmSubmission()">
+    📋 Complete Mission
+</button>
 
 </div>
+
+<div
+id="submitModal"
+style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.65);
+justify-content:center;
+align-items:center;
+z-index:999;
+">
+
+<div
+style="
+background:#1f2c4a;
+width:650px;
+max-width:90%;
+border-radius:20px;
+padding:30px;
+box-shadow:0 0 25px rgba(0,0,0,.45);
+">
+
+<h2 style="margin-top:0;">
+🛰 Arrival Hub Checklist
+</h2>
+
+<p style="color:#c8d3f5;">
+Before submitting, make sure you have discussed:
+</p>
+
+<div style="line-height:2;font-size:17px;">
+
+✅ Your Name<br>
+
+✅ Your Country / City<br>
+
+✅ Your Hobbies<br>
+
+✅ Favourite Food<br>
+
+✅ Favourite Movie / Game / Book
+
+</div>
+
+<div
+style="
+background:#152445;
+padding:15px;
+border-radius:12px;
+margin-top:25px;
+line-height:1.6;
+">
+
+🟡 You may still submit an incomplete mission.
+
+Your teacher will review your conversation before deciding whether to approve this mission.
+
+</div>
+
+<div
+style="
+display:flex;
+justify-content:flex-end;
+gap:15px;
+margin-top:30px;
+">
+
+<button
+onclick="hideSubmissionModal()"
+style="
+background:#4a5678;
+">
+
+Continue Conversation
+
+</button>
+
+<button
+onclick="submitMission()"
+>
+
+Submit Mission
+
+</button>
+
+</div>
+
+</div>
+
+</div>    
 
 <script>
     
@@ -286,6 +380,30 @@ console.log("ARIA reply:", ariaReply);
     };
 }
 
+function confirmSubmission(){
+
+document.getElementById(
+"submitModal"
+).style.display = "flex";
+
+}
+
+function hideSubmissionModal(){
+
+document.getElementById(
+"submitModal"
+).style.display = "none";
+
+}
+
+function submitMission(){
+
+hideSubmissionModal();
+
+completeMission();
+
+}
+    
 async function completeMission() {
 
     addMessage(
