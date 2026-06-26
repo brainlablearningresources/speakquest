@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Student Assessment3</title>
+<title>Student Assessment4</title>
 
 <style>
 
@@ -148,6 +148,21 @@ Loading report...
 
 </textarea>
 
+<br><br>
+
+<button
+onclick="saveReport()"
+style="
+background:#3ddc97;
+padding:14px 28px;
+font-size:16px;
+"
+>
+
+💾 Save Assessment
+
+</button>
+
 </div>
 
 </div>
@@ -177,6 +192,8 @@ params.get("classId");
 const studentId =
 params.get("studentId");
 
+let assessmentId = null;
+
 loadAssessment();
 
 async function loadAssessment(){
@@ -198,6 +215,8 @@ console.log(error);
 return;
 
 }
+
+assessmentId = data.id;    
 
 document.getElementById(
 "studentName"
