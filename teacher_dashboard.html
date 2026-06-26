@@ -230,8 +230,29 @@ document.getElementById(
 
 classList.innerHTML = "";
 
-data.forEach(cls => {
+async function getPendingCount(classId){
 
+const { count } =
+await supabaseClient
+.from("student_assessments")
+.select("*",
+{
+count:"exact",
+head:true
+})
+.eq("class_id", classId)
+.eq("status","Submitted");
+
+return count || 0;
+
+}
+    
+for (const cls of data) {
+
+const pending =
+await getPendingCount(cls.id);
+
+    
 classList.innerHTML += `
 <div class="class-item">
 
@@ -242,20 +263,26 @@ Class Code:
 <b>${cls.class_code}</b>
 </p>
 
+<p style="color:#FFD966;">
+📥 Pending Reviews:
+<b>${pending}</b>
+</p>
+
 <button
 onclick="
 event.stopPropagation();
 window.location.href=
 'class_details.html?id=${cls.id}'
-"
->
+">
+
 Manage Class
+
 </button>
 
 </div>
 `;
 
-});
+}
 
 }
 
