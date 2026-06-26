@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub3</title>
+<title>Class Mission - Arrival Hub4</title>
 
 <style>
 body{
@@ -172,6 +172,11 @@ async function askGemini(transcript) {
 const API_URL =
 "https://speakquestbackend.onrender.com/chat";
 
+console.log(
+"Current Class ID:",
+localStorage.getItem("currentClassId")
+);
+    
 const response = await fetch(
     API_URL,
     {
