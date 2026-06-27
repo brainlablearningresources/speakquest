@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Class12</title>
+<title>Student Class13</title>
 
 <style>
 
@@ -280,6 +280,71 @@ document.getElementById(
 await loadArrivalProgress();
 
 }    
+
+async function loadArrivalProgress(){
+
+const {
+data:{session}
+} =
+await supabaseClient.auth.getSession();
+
+if(!session){
+
+return;
+
+}
+
+const { data, error } =
+await supabaseClient
+.from("student_assessments")
+.select("*")
+.eq("student_id", session.user.id)
+.eq("class_id", classId)
+.eq("mission", "Arrival Hub")
+.order("created_at",{ascending:false})
+.limit(1)
+.single();
+
+const progress =
+document.getElementById(
+"arrivalProgress"
+);
+
+if(error || !data){
+
+progress.innerHTML = `
+<b style="display:block;margin-bottom:10px;">
+📋 Mission Progress
+</b>
+
+<div style="margin-bottom:8px;">
+❌ <b>Submission</b>
+</div>
+
+<div>
+⏳ <b>Teacher Approval</b>
+</div>
+`;
+
+return;
+
+}
+
+progress.innerHTML = `
+<b style="display:block;margin-bottom:10px;">
+📋 Mission Progress
+</b>
+
+<div style="margin-bottom:8px;">
+✅ <b>Submission Received</b>
+</div>
+
+<div>
+⏳ <b>Awaiting Lecturer Review</b>
+</div>
+`;
+
+}
     
 </script>
 
