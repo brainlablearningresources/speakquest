@@ -455,14 +455,19 @@ const response = await fetch(
             throw new Error(data.error);
         }
 
-       addMessage(
+      addMessage(
 `✅ Mission submitted successfully.
 
-Your teacher has received your submission.
-
-Please wait for your teacher's feedback before the next mission is unlocked.`,
+Opening your mission status...`,
 "ai"
 );
+
+setTimeout(function(){
+
+window.location.href =
+"mission-result.html";
+
+},1500);
 
     } catch(error){
 
