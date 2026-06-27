@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Class17</title>
+<title>Student Class19</title>
 
 <style>
 
@@ -269,16 +269,11 @@ return;
 
 }
 
-document.getElementById(
-"classTitle"
-).innerHTML =
+document.getElementById("classTitle").textContent =
 "📚 " + data.class_name;
 
-document.getElementById(
-"classCode"
-).innerHTML =
+document.getElementById("classCode").textContent =
 "Class Code: " + data.class_code;
-
 await loadArrivalProgress();
 
 }    
@@ -372,6 +367,9 @@ progress.innerHTML = `
 </div>
 `;
 
+arrivalStatus.textContent =
+"Status: ⏳ Awaiting Review";    
+
 arrivalButton.textContent =
 "👀 View Status";
 
@@ -400,6 +398,9 @@ progress.innerHTML = `
 </div>
 `;
 
+arrivalStatus.textContent =
+"Status: ✅ Completed";
+    
 arrivalButton.textContent =
 "📖 View Lecturer Review";
 
@@ -428,6 +429,9 @@ progress.innerHTML = `
 </div>
 `;
 
+arrivalStatus.textContent =
+"Status: 🔄 Revision Required";
+    
 arrivalButton.textContent =
 "🔄 Retry Mission";
 
