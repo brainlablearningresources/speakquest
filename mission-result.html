@@ -226,6 +226,31 @@ document.getElementById(
 "Retry Mission";
 
 }
+
+const actionButton =
+document.getElementById("actionButton");
+
+if(data.final_result === "Approved"){
+
+actionButton.onclick = function(){
+
+window.location.href =
+"network-sector.html";
+
+};
+
+}
+
+else{
+
+actionButton.onclick = function(){
+
+window.location.href =
+"arrival-hub.html";
+
+};
+
+}  
   
 }
 
