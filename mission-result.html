@@ -138,7 +138,16 @@ async function initialize(){
 const {
 data:{session}
 } =
-await supabaseClient.auth.getSession();  
+await supabaseClient.auth.getSession();
+
+if(!session){
+
+window.location.href =
+"login.html";
+
+return;
+
+}
 
 const studentId =
 session.user.id;
@@ -150,6 +159,23 @@ loadMissionResult(studentId);
 initialize();
 
 async function loadMissionResult(studentId){
+
+const { data, error } =
+await supabaseClient
+.from("student_assessments")
+.select("*")
+.eq("student_id", studentId)
+.order("created_at",{ascending:false})
+.limit(1)
+.single();
+
+if(error){
+
+console.log(error);
+
+return;
+
+}
 
 }
 
