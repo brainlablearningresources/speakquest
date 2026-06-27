@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Class13</title>
+<title>Student Class14</title>
 
 <style>
 
@@ -330,6 +330,8 @@ return;
 
 }
 
+if(data.final_result === "Waiting"){
+
 progress.innerHTML = `
 <b style="display:block;margin-bottom:10px;">
 📋 Mission Progress
@@ -343,6 +345,44 @@ progress.innerHTML = `
 ⏳ <b>Awaiting Lecturer Review</b>
 </div>
 `;
+
+}
+
+else if(data.final_result === "Approved"){
+
+progress.innerHTML = `
+<b style="display:block;margin-bottom:10px;">
+📋 Mission Progress
+</b>
+
+<div style="margin-bottom:8px;">
+✅ <b>Submission Received</b>
+</div>
+
+<div>
+🎉 <b>Mission Approved</b>
+</div>
+`;
+
+}
+
+else if(data.final_result === "Revision Required"){
+
+progress.innerHTML = `
+<b style="display:block;margin-bottom:10px;">
+📋 Mission Progress
+</b>
+
+<div style="margin-bottom:8px;">
+✅ <b>Submission Received</b>
+</div>
+
+<div>
+🔄 <b>Revision Required</b>
+</div>
+`;
+
+}
 
 }
     
