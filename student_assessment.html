@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Student Assessment10</title>
+<title>Student Assessment11</title>
 
 <style>
 
@@ -181,7 +181,46 @@ box-sizing:border-box;
 placeholder="Write your feedback here..."
 ></textarea>
 
-<br><br>
+<hr
+style="
+border:none;
+border-top:1px solid #32446d;
+margin:35px 0;
+">
+
+<h2>
+📌 Final Decision
+</h2>
+
+<p style="color:#b8c8ff;">
+Select the outcome of this mission.
+</p>
+
+<label style="display:block;margin-bottom:15px;font-size:17px;">
+
+<input
+type="radio"
+name="finalDecision"
+value="Approved"
+>
+
+✅ Approve Mission
+
+</label>
+
+<label style="display:block;margin-bottom:20px;font-size:17px;">
+
+<input
+type="radio"
+name="finalDecision"
+value="Revision Required"
+>
+
+🔄 Return for Revision
+
+</label>
+
+<br>
 
 <button
 onclick="saveReport()"
