@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Student Assessment13</title>
+<title>Student Assessment14</title>
 
 <style>
 
@@ -314,6 +314,21 @@ document.getElementById(
 "teacherFeedback"
 ).value =
 data.teacher_feedback || "";
+
+if(data.final_result){
+
+const radio =
+document.querySelector(
+`input[name="finalDecision"][value="${data.final_result}"]`
+);
+
+if(radio){
+
+radio.checked = true;
+
+}
+
+}    
     
 }
 
@@ -328,15 +343,35 @@ const teacherFeedback =
 document.getElementById(
 "teacherFeedback"
 ).value;
+
+const finalDecision =
+document.querySelector(
+'input[name="finalDecision"]:checked'
+)?.value;    
+
+if(!finalDecision){
+
+alert(
+"Please select a final decision before saving."
+);
+
+return;
+
+}
     
 const { error } =
-await supabaseClient
+await supabaseClient  
+    
 .from("student_assessments")
 .update({
 
 ai_report: editedReport,
 
-teacher_feedback: teacherFeedback
+teacher_feedback: teacherFeedback,
+
+final_result: finalDecision,
+
+status: "Reviewed"
 
 })
 .eq("id", assessmentId);
@@ -357,6 +392,11 @@ alert(
 "✅ Assessment Report, Teacher Feedback, and Final Decision have been saved."
 );
 
+document.getElementById(
+"status"
+).textContent =
+"Reviewed";
+    
 }
 
 </script>  
