@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Student Assessment7</title>
+<title>Student Assessment8</title>
 
 <style>
 
@@ -150,6 +150,19 @@ Loading report...
 
 <br><br>
 
+<button
+onclick="saveReport()"
+style="
+background:#3ddc97;
+padding:14px 28px;
+font-size:16px;
+"
+>
+
+💾 Save Lecturer Review
+
+</button>
+
 <br><br><br>
 
 <h2>
@@ -252,6 +265,11 @@ document.getElementById(
 ).value =
 data.ai_report;
 
+document.getElementById(
+"teacherFeedback"
+).value =
+data.teacher_feedback || "";
+    
 }
 
 async function saveReport(){
@@ -261,12 +279,19 @@ document.getElementById(
 "report"
 ).value;
 
+const teacherFeedback =
+document.getElementById(
+"teacherFeedback"
+).value;
+    
 const { error } =
 await supabaseClient
 .from("student_assessments")
 .update({
 
-ai_report: editedReport
+ai_report: editedReport,
+
+teacher_feedback: teacherFeedback
 
 })
 .eq("id", assessmentId);
