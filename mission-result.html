@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mission Result3</title>
+<title>Mission Result4</title>
 
 <style>
 
@@ -177,7 +177,31 @@ return;
 
 }
 
-if(data.final_result === "Approved"){
+if(data.final_result === "Waiting"){
+
+document.getElementById(
+"title"
+).textContent =
+"⏳ Waiting for Lecturer Review";
+
+document.getElementById(
+"subtitle"
+).textContent =
+"Your mission has been submitted successfully. Your lecturer has not reviewed it yet.";
+
+document.getElementById(
+"feedback"
+).textContent =
+"Your submission is currently awaiting review. Please check back later.";
+
+document.getElementById(
+"actionButton"
+).textContent =
+"Return to Home";
+
+}
+
+else if(data.final_result === "Approved"){
 
 document.getElementById(
 "title"
@@ -230,7 +254,18 @@ document.getElementById(
 const actionButton =
 document.getElementById("actionButton");
 
-if(data.final_result === "Approved"){
+if(data.final_result === "Waiting"){
+
+actionButton.onclick = function(){
+
+window.location.href =
+"index.html";
+
+};
+
+}
+
+else if(data.final_result === "Approved"){
 
 actionButton.onclick = function(){
 
@@ -250,7 +285,7 @@ window.location.href =
 
 };
 
-}  
+}
   
 }
 
