@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Class15</title>
+<title>Student Class16</title>
 
 <style>
 
@@ -100,7 +100,9 @@ Your teacher will review each mission before unlocking the next one.
 
 <h2>Arrival Hub</h2>
 
-<p>Status: 🟢 Available</p>
+<p id="arrivalStatus">
+Status: Loading...
+</p>
 
 <p>
 Activate your identity profile and enter the network.
@@ -310,6 +312,16 @@ document.getElementById(
 "arrivalProgress"
 );
 
+const arrivalButton =
+document.getElementById(
+"arrivalButton"
+);
+
+const arrivalStatus =
+document.getElementById(
+"arrivalStatus"
+);
+    
 if(error || !data){
 
 progress.innerHTML = `
@@ -322,10 +334,21 @@ progress.innerHTML = `
 </div>
 
 <div>
+
 ⏳ <b>Teacher Approval</b>
 </div>
 `;
 
+arrivalButton.textContent =
+"🚀 Enter Mission";
+
+arrivalButton.onclick = function(){
+
+window.location.href =
+"class_chat.html";
+
+};
+    
 return;
 
 }
@@ -346,6 +369,16 @@ progress.innerHTML = `
 </div>
 `;
 
+arrivalButton.textContent =
+"👀 View Status";
+
+arrivalButton.onclick = function(){
+
+window.location.href =
+"mission-result.html";
+
+};
+    
 }
 
 else if(data.final_result === "Approved"){
@@ -364,6 +397,16 @@ progress.innerHTML = `
 </div>
 `;
 
+arrivalButton.textContent =
+"📖 View Lecturer Review";
+
+arrivalButton.onclick = function(){
+
+window.location.href =
+"mission-result.html";
+
+};
+    
 }
 
 else if(data.final_result === "Revision Required"){
@@ -382,6 +425,16 @@ progress.innerHTML = `
 </div>
 `;
 
+arrivalButton.textContent =
+"🔄 Retry Mission";
+
+arrivalButton.onclick = function(){
+
+window.location.href =
+"class_chat.html";
+
+};
+    
 }
 
 }
