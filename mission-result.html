@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mission Result8</title>
+<title>Mission Result9</title>
 
 <style>
 
@@ -283,38 +283,12 @@ document.getElementById(
 const actionButton =
 document.getElementById("actionButton");
 
-if(data.final_result === "Waiting"){
-
 actionButton.onclick = function(){
 
 window.location.href =
-"index.html";
+"student_class.html";
 
 };
-
-}
-
-else if(data.final_result === "Approved"){
-
-actionButton.onclick = function(){
-
-window.location.href =
-"network-sector.html";
-
-};
-
-}
-
-else{
-
-actionButton.onclick = function(){
-
-window.location.href =
-"arrival-hub.html";
-
-};
-
-}
   
 }
 
