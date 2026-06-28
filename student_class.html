@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Class23</title>
+<title>Student Class25</title>
 
 <style>
 
@@ -128,6 +128,16 @@ Loading...
 
 <button id="arrivalButton">
 Loading...
+</button>
+
+<button
+id="retryButton"
+style="
+display:none;
+margin-top:10px;
+background:#ff9800;
+">
+🔄 Retry Mission
 </button>
 
 </div>
@@ -432,6 +442,19 @@ window.location.href =
 
 };
 
+document.getElementById(
+"retryButton"
+).style.display = "block";
+
+document.getElementById(
+"retryButton"
+).onclick = function(){
+
+window.location.href =
+"arrivalhub.html";
+
+};
+    
 explorationCard.classList.remove("locked");
 
 explorationStatus.textContent =
