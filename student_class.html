@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Class20</title>
+<title>Student Class22</title>
 
 <style>
 
@@ -132,19 +132,25 @@ Loading...
 
 </div>
 
-<div class="mission-card locked">
+<div
+id="explorationCard"
+class="mission-card locked">
 
 <div style="font-size:60px;">🌐</div>
 
 <h2>Exploration Sector</h2>
 
-<p>Status: 🔒 Locked</p>
+<p id="explorationStatus">
+Status: 🔒 Locked
+</p>
 
-<p>
+<p id="explorationDescription">
 Complete Arrival Hub to unlock.
 </p>
 
-<button disabled>
+<button
+id="explorationButton"
+disabled>
 Locked
 </button>
 
@@ -316,6 +322,21 @@ const arrivalStatus =
 document.getElementById(
 "arrivalStatus"
 );
+
+const explorationCard =
+document.getElementById(
+"explorationCard"
+);
+
+const explorationStatus =
+document.getElementById(
+"explorationStatus"
+);
+
+const explorationButton =
+document.getElementById(
+"explorationButton"
+);    
     
 if(error || !data){
 
@@ -410,6 +431,23 @@ window.location.href =
 "mission-result.html";
 
 };
+
+explorationCard.classList.remove("locked");
+
+explorationStatus.textContent =
+"Status: 🟢 Available";
+
+explorationButton.disabled = false;
+
+explorationButton.textContent =
+"🚀 Enter Mission";
+
+explorationButton.onclick = function(){
+
+window.location.href =
+"network-sector.html";
+
+};    
     
 }
 
