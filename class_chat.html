@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub31</title>
+<title>Class Mission - Arrival Hub32</title>
 
 <style>
 body{
@@ -146,6 +146,7 @@ filter:none;
 #avatar{
 
     width:320px;
+
     position:relative;
 
     left:40px;
@@ -157,44 +158,28 @@ filter:none;
     animation:float 4s ease-in-out infinite;
 
     filter:
-    drop-shadow(0 0 15px rgba(70,170,255,.45))
-    drop-shadow(0 0 35px rgba(70,170,255,.25));
+        drop-shadow(0 0 15px rgba(70,170,255,.45))
+        drop-shadow(0 0 35px rgba(70,170,255,.25));
 
-}
-
-#avatarFade{
-
-    position:absolute;
-
-    left:40px;
-
-    bottom:25px;
-
-    width:320px;
-
-    height:130px;
-
-    z-index:3;
-
-    pointer-events:none;
-
-    background:linear-gradient(
-
-        to top,
-
-        rgba(16,23,40,1) 0%,
-
-        rgba(16,23,40,.90) 20%,
-
-        rgba(16,23,40,.55) 45%,
-
-        rgba(16,23,40,.20) 70%,
-
-        rgba(16,23,40,0) 100%
-
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,1) 72%,
+        rgba(0,0,0,.85) 82%,
+        rgba(0,0,0,.45) 90%,
+        rgba(0,0,0,0) 100%
     );
 
-}    
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,1) 72%,
+        rgba(0,0,0,.85) 82%,
+        rgba(0,0,0,.45) 90%,
+        rgba(0,0,0,0) 100%
+    );
+
+}
     
 @keyframes float{
 
@@ -300,8 +285,6 @@ Network Orientation Terminal
         id="avatar"
         src="assets/expressions/welcome.png"
         alt="ARIAN">
-
-    <div id="avatarFade"></div>
 
 </div>
     
