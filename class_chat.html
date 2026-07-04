@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub7</title>
+<title>Class Mission - Arrival Hub8</title>
 
 <style>
 body{
     background:#101728;
     color:white;
-    font-family:Segoe UI, ARIANl, sans-serif;
+    font-family:Segoe UI, Arial, sans-serif;
     margin:0;
 }
 
@@ -69,8 +69,25 @@ button:disabled{
 }
 
 #avatar{
-    width:220px;
-    max-width:90%;
+    width:260px;
+    animation:float 4s ease-in-out infinite;
+
+}
+    
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
 }
     
 </style>
