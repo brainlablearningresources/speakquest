@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub8</title>
+<title>Class Mission - Arrival Hub9</title>
 
 <style>
 body{
@@ -279,6 +279,7 @@ Submit Mission
     
 const chatArea = document.getElementById("chatArea");
 const speakButton = document.getElementById("speakButton");
+const avatar = document.getElementById("avatar");
 
 const conversationHistory = [];
 conversationHistory.push({
@@ -373,6 +374,7 @@ conversationHistory.push({
 console.log("Student transcript:", transcript);
 
         addMessage(transcript, "student");
+        avatar.src = "assets/expressions/thinking.png";
         addMessage("ARIAN is thinking...", "ai");
 
         try {
