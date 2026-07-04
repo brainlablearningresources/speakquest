@@ -10,7 +10,7 @@
 body{
     background:#101728;
     color:white;
-    font-family:Segoe UI, Arial, sans-serif;
+    font-family:Segoe UI, ARIANl, sans-serif;
     margin:0;
 }
 
@@ -120,7 +120,7 @@ Network Orientation Terminal
    <div class="message ai">
     Hello.
 
-    My name is ARIA.
+    My name is ARIAN.
 
     Welcome to the Network.
 
@@ -244,7 +244,7 @@ const speakButton = document.getElementById("speakButton");
 const conversationHistory = [];
 conversationHistory.push({
     role: "assistant",
-    text: "Hello. My name is ARIA. Welcome to the Network. Before I grant access to additional sectors, I would like to learn a little about you. What is your name?"
+    text: "Hello. My name is ARIAN. Welcome to the Network. Before I grant access to additional sectors, I would like to learn a little about you. What is your name?"
 });
     
 function addMessage(text, sender) {
@@ -334,30 +334,30 @@ conversationHistory.push({
 console.log("Student transcript:", transcript);
 
         addMessage(transcript, "student");
-        addMessage("ARIA is thinking...", "ai");
+        addMessage("ARIAN is thinking...", "ai");
 
         try {
-            const ariaReply = await askGemini(transcript);
+            const ARIANReply = await askGemini(transcript);
 
             const aiMessages = document.querySelectorAll(".message.ai");
             const lastAiMessage = aiMessages[aiMessages.length - 1];
 
-           lastAiMessage.textContent = ariaReply;
+           lastAiMessage.textContent = ARIANReply;
 
 conversationHistory.push({
     role: "assistant",
-    text: ariaReply
+    text: ARIANReply
 });
 
 const speech = new SpeechSynthesisUtterance(
-    ariaReply
+    ARIANReply
 );
 
 speech.lang = "en-GB";
 
 window.speechSynthesis.speak(speech);
 
-console.log("ARIA reply:", ariaReply);
+console.log("ARIAN reply:", ARIANReply);
         } catch (error) {
             console.error("Gemini error:", error);
 
@@ -365,7 +365,7 @@ console.log("ARIA reply:", ariaReply);
             const lastAiMessage = aiMessages[aiMessages.length - 1];
 
             lastAiMessage.textContent =
-                "ARIA is temporarily unavailable. Please try again in a few moments.";
+                "ARIAN is temporarily unavailable. Please try again in a few moments.";
         }
     };
 
