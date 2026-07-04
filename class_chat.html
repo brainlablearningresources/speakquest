@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub34</title>
+<title>Class Mission - Arrival Hub35</title>
 
 <style>
 body{
@@ -93,8 +93,6 @@ button:disabled{
 
     border-radius:50%;
 
-   background:transparent;
-
 background:
 radial-gradient(
 ellipse at center,
@@ -160,6 +158,35 @@ filter:none;
     filter:
         drop-shadow(0 0 15px rgba(70,170,255,.45))
         drop-shadow(0 0 35px rgba(70,170,255,.25));
+
+}
+
+#hologramMist{
+
+    position:absolute;
+
+    left:50%;
+    transform:translateX(-50%);
+
+    bottom:28px;
+
+    width:320px;
+
+    height:90px;
+
+    z-index:3;
+
+    pointer-events:none;
+
+    background:linear-gradient(
+        to top,
+        rgba(70,180,255,.55) 0%,
+        rgba(70,180,255,.35) 25%,
+        rgba(70,180,255,.15) 55%,
+        rgba(70,180,255,0) 100%
+    );
+
+    filter:blur(12px);
 
 }
     
@@ -267,6 +294,8 @@ Network Orientation Terminal
         id="avatar"
         src="assets/expressions/welcome.png"
         alt="ARIAN">
+
+    <div id="hologramMist"></div>
 
 </div>
     
