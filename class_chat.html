@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub48</title>
+<title>Class Mission - Arrival Hub49</title>
 
 <style>
 
@@ -137,6 +137,38 @@ button:disabled{
     
 }
 
+#portalGlow{
+
+    position:absolute;
+
+    left:50%;
+    transform:translateX(-50%);
+
+    bottom:18px;
+
+    width:460px;
+    height:110px;
+
+    z-index:0;
+
+    pointer-events:none;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        ellipse at center,
+        rgba(80,220,255,.18) 0%,
+        rgba(80,220,255,.08) 45%,
+        rgba(80,220,255,.03) 70%,
+        rgba(80,220,255,0) 100%
+    );
+
+    filter:blur(18px);
+
+    animation:portalPulse 4s ease-in-out infinite;
+
+}
+    
 #hologramMist{
 
     position:absolute;
@@ -206,6 +238,34 @@ opacity:.6;
 }
 
 }
+
+@keyframes portalPulse{
+
+0%{
+
+    transform:translateX(-50%) scale(.95);
+
+    opacity:.55;
+
+}
+
+50%{
+
+    transform:translateX(-50%) scale(1.03);
+
+    opacity:1;
+
+}
+
+100%{
+
+    transform:translateX(-50%) scale(.95);
+
+    opacity:.55;
+
+}
+
+}    
     
 </style>
 </head>
@@ -264,12 +324,14 @@ Network Orientation Terminal
 
 <div id="avatarContainer">
 
+    <div id="portalGlow"></div>
+
+    <div id="hologramMist"></div>
+
     <img
         id="avatar"
         src="assets/expressions/welcome.png"
         alt="ARIAN">
-
-    <div id="hologramMist"></div>
 
 </div>
     
