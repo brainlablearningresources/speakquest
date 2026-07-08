@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub16</title>
+<title>Class Mission - Arrival Hub17</title>
 
 <style>
 
@@ -557,7 +557,10 @@ function addMessage(text, sender) {
     message.style.whiteSpace = "pre-wrap";
     message.textContent = text;
     chatArea.appendChild(message);
-    message.scrollIntoView({ behavior: "smooth", block: "end" });
+    chatArea.scrollTo({
+    top: chatArea.scrollHeight,
+    behavior: "smooth"
+});
 }
 
 function setButtonLoading(isLoading) {
