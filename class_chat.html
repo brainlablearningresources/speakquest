@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub1</title>
+<title>Class Mission - Arrival Hub2</title>
 
 <style>
 
@@ -678,28 +678,11 @@ speech.lang = "en-GB";
 
 const voices = window.speechSynthesis.getVoices();
 
-const maleVoice = voices.find(function(v){
+speech.voice = voices.find(function(v){
 
-    return (
-        v.lang.startsWith("en") &&
-        (
-            v.name.includes("David") ||
-            v.name.includes("Ryan") ||
-            v.name.includes("Guy") ||
-            v.name.includes("James") ||
-            v.name.includes("Daniel") ||
-            v.name.includes("Microsoft David") ||
-            v.name.includes("Google UK English Male")
-        )
-    );
+    return v.name === "Microsoft George - English (United Kingdom)";
 
 });
-
-if(maleVoice){
-
-    speech.voice = maleVoice;
-
-}
 
 speech.pitch = 0.85;
 speech.rate = 0.95;            
