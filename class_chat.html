@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub23</title>
+<title>Class Mission - Arrival Hub24</title>
 
 <style>
 
@@ -544,6 +544,29 @@ Submit Mission
 const chatArea = document.getElementById("chatArea");
 const speakButton = document.getElementById("speakButton");
 const avatar = document.getElementById("avatar");
+
+const expressionImages = [
+
+    "assets/expressions/neutral.png",
+    "assets/expressions/welcome.png",
+    "assets/expressions/thinking.png",
+    "assets/expressions/thinking_side.png",
+    "assets/expressions/smile.png",
+    "assets/expressions/surprised.png",
+    "assets/expressions/hand_on_chest.png",
+    "assets/expressions/mouth_small.png",
+    "assets/expressions/mouth_medium.png",
+    "assets/expressions/mouth_large.png"
+
+];
+
+expressionImages.forEach(function(src){
+
+    const img = new Image();
+
+    img.src = src;
+
+});    
 
 let talkingAnimation = null; 
 
