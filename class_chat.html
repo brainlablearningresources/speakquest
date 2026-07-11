@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub24</title>
+<title>Class Mission - Arrival Hub25</title>
 
 <style>
 
@@ -568,8 +568,6 @@ expressionImages.forEach(function(src){
 
 });    
 
-let talkingAnimation = null; 
-
 const conversationHistory = [];
 conversationHistory.push({
     role: "assistant",
@@ -592,36 +590,13 @@ function startTalkingAnimation(){
 
     clearInterval(talkingAnimation);
 
-    const mouths = [
-
-        "assets/expressions/mouth_small.png",
-        "assets/expressions/mouth_medium.png",
-        "assets/expressions/mouth_large.png",
-        "assets/expressions/mouth_medium.png"
-
-    ];
-
-    let index = 0;
-
-    talkingAnimation = setInterval(function(){
-
-        avatar.src = mouths[index];
-        avatar.style.border = "5px solid red";
-
-        index = (index + 1) % mouths.length;
-
-    }, 180);
+    avatar.src = "assets/expressions/mouth_medium.png";
 
 }
 
 function stopTalkingAnimation(){
 
-    clearInterval(talkingAnimation);
-    talkingAnimation = null;
-
     avatar.src = "assets/expressions/neutral.png";
-
-    avatar.style.border = "none";
 
 }    
     
