@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub2</title>
+<title>Class Mission - Arrival Hub3</title>
 
 <style>
 
@@ -378,6 +378,8 @@ document.getElementById(
 ).textContent =
 "Agent: " + session.user.email;
 
+playWelcomeMessage();
+
 }
 
 </script> 
@@ -572,6 +574,51 @@ function startTalkingAnimation(){
 function stopTalkingAnimation(){
 
     avatar.src = "assets/expressions/neutral.png";
+
+}
+
+function playWelcomeMessage(){
+
+    const welcomeText =
+
+`Hello.
+
+My name is ARIAN.
+
+Welcome to the Network.
+
+Before I grant access to additional sectors, I would like to learn a little about you.
+
+What is your name?`;
+
+    const speech = new SpeechSynthesisUtterance(welcomeText);
+
+    speech.lang = "en-GB";
+
+    const voices = window.speechSynthesis.getVoices();
+
+    speech.voice = voices.find(function(v){
+
+        return v.name === "Microsoft George - English (United Kingdom)";
+
+    });
+
+    speech.pitch = 0.85;
+    speech.rate = 0.95;
+
+    speech.onstart = function(){
+
+        avatar.src = "assets/expressions/mouth_medium.png";
+
+    };
+
+    speech.onend = function(){
+
+        avatar.src = "assets/expressions/neutral.png";
+
+    };
+
+    window.speechSynthesis.speak(speech);
 
 }    
     
