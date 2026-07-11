@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub8</title>
+<title>Class Mission - Arrival Hub10</title>
 
 <style>
 
@@ -173,7 +173,9 @@ button:disabled{
 
 #avatar{
 
-    width:320px;
+    width:350px;
+
+    transform:translateY(0) scaleY(1.04);
 
     position:relative;
 
@@ -279,7 +281,7 @@ transform:translateY(-8px);
 100%{
 transform:translateY(0px);
 }
-    
+
 }
 
 @keyframes ringPulse{
@@ -545,6 +547,16 @@ Submit Mission
 const chatArea = document.getElementById("chatArea");
 const speakButton = document.getElementById("speakButton");
 const avatar = document.getElementById("avatar");
+    
+let availableVoices = speechSynthesis.getVoices();
+
+speechSynthesis.onvoiceschanged = function(){
+
+    availableVoices = speechSynthesis.getVoices();
+
+    console.log("Voices loaded.");
+
+};
 
 const conversationHistory = [];
 conversationHistory.push({
@@ -623,6 +635,16 @@ return data.reply;
 
 function beginMission(){
 
+availableVoices = speechSynthesis.getVoices();
+
+if(availableVoices.length === 0){
+
+    alert("Please wait one moment while ARIAN is getting ready.");
+
+    return;
+
+}
+
     speakButton.disabled = true;
 
     const welcomeText =
@@ -641,13 +663,13 @@ What is your name?`;
 
     speech.lang = "en-GB";
 
-    const voices = window.speechSynthesis.getVoices();
+    const voices = availableVoices;
 
-    speech.voice = voices.find(function(v){
-
-        return v.name === "Microsoft George - English (United Kingdom)";
-
-    });
+   speech.voice =
+    voices.find(v => v.name === "Microsoft George - English (United Kingdom)") ||
+    voices.find(v => v.name === "Google UK English Male") ||
+    voices.find(v => v.name === "Microsoft David - English (United States)") ||
+    voices.find(v => v.name === "Microsoft Mark - English (United States)");
 
     speech.pitch = 0.85;
     speech.rate = 0.95;
@@ -726,19 +748,21 @@ conversationHistory.push({
     text: ARIANReply
 });
 
+availableVoices = speechSynthesis.getVoices();
+
 const speech = new SpeechSynthesisUtterance(
     ARIANReply
 );
 
 speech.lang = "en-GB";
 
-const voices = window.speechSynthesis.getVoices();
+const voices = availableVoices;
 
-speech.voice = voices.find(function(v){
-
-    return v.name === "Microsoft George - English (United Kingdom)";
-
-});
+speech.voice =
+    voices.find(v => v.name === "Microsoft George - English (United Kingdom)") ||
+    voices.find(v => v.name === "Google UK English Male") ||
+    voices.find(v => v.name === "Microsoft David - English (United States)") ||
+    voices.find(v => v.name === "Microsoft Mark - English (United States)");
 
 speech.pitch = 0.85;
 speech.rate = 0.95;            
