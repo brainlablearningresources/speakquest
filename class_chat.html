@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub20</title>
+<title>Class Mission - Arrival Hub21</title>
 
 <style>
 
@@ -567,6 +567,8 @@ function addMessage(text, sender) {
 
 function startTalkingAnimation(){
 
+console.log("Talking animation started");    
+
     const mouths = [
 
         "assets/expressions/mouth_small.png",
@@ -582,6 +584,8 @@ function startTalkingAnimation(){
     let index = 0;
 
     talkingAnimation = setInterval(function(){
+
+    console.log(mouths[index]);    
 
         avatar.src = mouths[index];
 
@@ -683,7 +687,7 @@ conversationHistory.push({
 console.log("Student transcript:", transcript);
 
         addMessage(transcript, "student");
-        avatar.src = "assets/expressions/thinking.png";
+        avatar.src = "assets/expressions/mouth_small.png";
         addMessage("ARIAN is thinking...", "ai");
 
         try {
