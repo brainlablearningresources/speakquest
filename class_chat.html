@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub18</title>
+<title>Class Mission - Arrival Hub19</title>
 
 <style>
 
@@ -596,6 +596,14 @@ function startTalkingAnimation(){
     },180);
 
 }
+
+function stopTalkingAnimation(){
+
+    clearInterval(talkingAnimation);
+
+    avatar.src = "assets/expressions/neutral.png";
+
+}    
     
 function setButtonLoading(isLoading) {
     speakButton.disabled = isLoading;
