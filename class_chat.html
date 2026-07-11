@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub22</title>
+<title>Class Mission - Arrival Hub23</title>
 
 <style>
 
@@ -545,7 +545,7 @@ const chatArea = document.getElementById("chatArea");
 const speakButton = document.getElementById("speakButton");
 const avatar = document.getElementById("avatar");
 
-let talkingAnimation;    
+let talkingAnimation = null; 
 
 const conversationHistory = [];
 conversationHistory.push({
@@ -567,16 +567,13 @@ function addMessage(text, sender) {
 
 function startTalkingAnimation(){
 
-console.log("Talking animation started");    
+    clearInterval(talkingAnimation);
 
     const mouths = [
 
         "assets/expressions/mouth_small.png",
-
         "assets/expressions/mouth_medium.png",
-
         "assets/expressions/mouth_large.png",
-
         "assets/expressions/mouth_medium.png"
 
     ];
@@ -585,27 +582,23 @@ console.log("Talking animation started");
 
     talkingAnimation = setInterval(function(){
 
-    console.log(mouths[index]);    
-
         avatar.src = mouths[index];
+        avatar.style.border = "5px solid red";
 
-        index++;
+        index = (index + 1) % mouths.length;
 
-        if(index >= mouths.length){
-
-            index = 0;
-
-        }
-
-    },180);
+    }, 180);
 
 }
 
 function stopTalkingAnimation(){
 
     clearInterval(talkingAnimation);
+    talkingAnimation = null;
 
     avatar.src = "assets/expressions/neutral.png";
+
+    avatar.style.border = "none";
 
 }    
     
@@ -687,7 +680,7 @@ conversationHistory.push({
 console.log("Student transcript:", transcript);
 
         addMessage(transcript, "student");
-        avatar.src = "assets/expressions/mouth_small.png";
+        avatar.src = "assets/expressions/thinking.png";
         addMessage("ARIAN is thinking...", "ai");
 
         try {
@@ -712,6 +705,7 @@ speech.lang = "en-GB";
 
 speech.onstart = function(){
 
+    stopTalkingAnimation();
     startTalkingAnimation();
 
 };
