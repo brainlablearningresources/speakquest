@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub27</title>
+<title>Class Mission - Arrival Hub28</title>
 
 <style>
 
@@ -678,14 +678,17 @@ speech.lang = "en-GB";
 
 speech.onstart = function(){
 
-    stopTalkingAnimation();
-    startTalkingAnimation();
+    console.log("Speech started");
+
+    avatar.src = "assets/expressions/mouth_medium.png";
 
 };
 
 speech.onend = function(){
 
-    stopTalkingAnimation();
+    console.log("Speech ended");
+
+    avatar.src = "assets/expressions/neutral.png";
 
 };
 
