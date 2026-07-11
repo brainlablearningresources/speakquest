@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Class Mission - Arrival Hub17</title>
+<title>Class Mission - Arrival Hub18</title>
 
 <style>
 
@@ -545,6 +545,8 @@ const chatArea = document.getElementById("chatArea");
 const speakButton = document.getElementById("speakButton");
 const avatar = document.getElementById("avatar");
 
+let talkingAnimation;    
+
 const conversationHistory = [];
 conversationHistory.push({
     role: "assistant",
@@ -563,6 +565,38 @@ function addMessage(text, sender) {
 });
 }
 
+function startTalkingAnimation(){
+
+    const mouths = [
+
+        "assets/expressions/mouth_small.png",
+
+        "assets/expressions/mouth_medium.png",
+
+        "assets/expressions/mouth_large.png",
+
+        "assets/expressions/mouth_medium.png"
+
+    ];
+
+    let index = 0;
+
+    talkingAnimation = setInterval(function(){
+
+        avatar.src = mouths[index];
+
+        index++;
+
+        if(index >= mouths.length){
+
+            index = 0;
+
+        }
+
+    },180);
+
+}
+    
 function setButtonLoading(isLoading) {
     speakButton.disabled = isLoading;
     speakButton.textContent = isLoading ? "Listening..." : "🎤 Start Speaking";
