@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Arrival Hub16</title>
+<title>Arrival Hub17</title>
 
 <style>
 body{
@@ -116,29 +116,50 @@ Network Orientation Terminal
 </p>
 </div>
 
-<div class="chat-area" id="chatArea">
-   <div class="message ai">
-    Hello.
+<div class="mainContent">
 
-    My name is ARIA.
+    <div id="avatarContainer">
 
-    Welcome to the Network.
+        <div id="portalGlow"></div>
 
-    Before I grant access to additional sectors, I would like to learn a little about you.
+        <div id="hologramMist"></div>
 
-    What is your name?
-</div>
-</div>
+        <img
+            id="avatar"
+            src="assets/expressions/welcome.png"
+            alt="ARIAN">
 
-<div class="input-area">
+    </div>
 
-    <button id="speakButton" onclick="startListening()">
-        🎤 Start Speaking
-    </button>
+    <div class="conversationContainer">
 
-    <button onclick="completeMission()">
-        📋 Complete Mission
-    </button>
+        <div class="chat-area" id="chatArea">
+
+            <div class="message ai">
+
+Hello.
+
+My name is ARIAN.
+
+Welcome to the Network.
+
+Before I grant access to additional sectors, I would like to learn a little about you.
+
+What is your name?
+
+            </div>
+
+        </div>
+
+        <div class="input-area">
+
+            <button id="speakButton" onclick="beginMission()">
+                🚀 Begin Mission
+            </button>
+
+        </div>
+
+    </div>
 
 </div>
 
