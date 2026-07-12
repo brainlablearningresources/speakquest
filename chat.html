@@ -580,17 +580,19 @@ What is your name?`;
 
     speech.onend = function(){
 
-        avatar.src = "assets/expressions/neutral.png";
+    avatar.src = "assets/expressions/neutral.png";
 
-        speakButton.textContent = "🎤 Start Speaking";
+    speakButton.textContent = "🎤 Start Speaking";
 
-        speakButton.disabled = false;
+    document.getElementById("evaluateMissionBtn").style.display = "inline-block";
 
-        speakButton.onclick = startListening;
+    speakButton.disabled = false;
 
-        startListening();
+    speakButton.onclick = startListening;
 
-    };
+    startListening();
+
+};
 
     window.speechSynthesis.speak(speech);
 
