@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mission - Arrival Hub3</title>
+<title>Mission - Arrival Hub4</title>
 
 <style>
 
@@ -479,18 +479,6 @@ function addMessage(text, sender) {
 });
 }
 
-function startTalkingAnimation(){
-
-    avatar.src = "assets/expressions/mouth_medium.png";
-
-}
-
-function stopTalkingAnimation(){
-
-    avatar.src = "assets/expressions/neutral.png";
-
-}
-    
 function setButtonLoading(isLoading) {
     speakButton.disabled = isLoading;
     speakButton.textContent = isLoading ? "Listening..." : "🎤 Start Speaking";
@@ -502,8 +490,8 @@ const API_URL =
 "https://speakquestbackend.onrender.com/chat";
 
 console.log(
-"Current Class ID:",
-localStorage.getItem("currentClassId")
+"Current Mission:",
+localStorage.getItem("currentMission")
 );
     
 const response = await fetch(
