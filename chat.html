@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mission - Arrival Hub7</title>
+<title>Mission - Arrival Hub8</title>
 
 <style>
 
@@ -719,11 +719,34 @@ avatar.src = "assets/expressions/neutral.png";
     
 }
 
-function evaluateMission(){
+async function evaluateMission(){
 
-    console.log("========== Conversation History ==========");
-    console.log(conversationHistory);
-    console.log("=========================================");
+    try{
+
+        const response = await fetch(
+            "https://speakquestbackend.onrender.com/evaluateMission",
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({
+                    history:conversationHistory,
+                    mission:localStorage.getItem("currentMission")
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        console.log("Mission Evaluation:", data);
+
+    }
+    catch(error){
+
+        console.error(error);
+
+    }
 
 }
     
