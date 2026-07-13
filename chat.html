@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mission - Arrival Hub17</title>
+<title>Mission - Arrival Hub2</title>
 
 <style>
 
@@ -852,14 +852,28 @@ scannerAnimation = setInterval(() => {
             }
         );
 
-        const data = await response.json();
+       const data = await response.json();
 
 clearInterval(scannerAnimation);
 
-scannerContent.textContent =
-data.evaluation;
+if(data.success){
 
-closeScannerBtn.style.display = "inline-block";
+    scannerContent.textContent =
+    data.evaluation;
+
+}else{
+
+    scannerContent.textContent =
+`⚠ CONNECTION LOST
+
+I am temporarily unable to complete the scan.
+
+Please try again in a few moments.`;
+
+}
+
+closeScannerBtn.style.display =
+"inline-block";
 
 console.log("Mission Evaluation:", data);
 
