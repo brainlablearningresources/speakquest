@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mission - Arrival Hub16</title>
+<title>Mission - Arrival Hub17</title>
 
 <style>
 
@@ -549,6 +549,7 @@ speechSynthesis.onvoiceschanged = function(){
 };
 
 const conversationHistory = [];
+let scannerAnimation;
 conversationHistory.push({
     role: "assistant",
     text: "Hello. My name is ARIAN. Welcome to the Network. Before I grant access to additional sectors, I would like to learn a little about you. What is your name?"
@@ -822,8 +823,20 @@ async function evaluateMission(){
 
         closeScannerBtn.style.display = "none";
 
-        scannerContent.textContent =
-        "🛰 Scanning conversation...";
+        let dots = 0;
+
+scannerContent.textContent =
+"🛰 Synchronising with ARIAN";
+
+scannerAnimation = setInterval(() => {
+
+    dots = (dots + 1) % 4;
+
+    scannerContent.textContent =
+    "🛰 Synchronising with ARIAN" +
+    ".".repeat(dots);
+
+}, 500);
 
         const response = await fetch(
             "https://speakquestbackend.onrender.com/evaluateMission",
@@ -841,19 +854,29 @@ async function evaluateMission(){
 
         const data = await response.json();
 
-        closeScannerBtn.style.display = "inline-block";
+clearInterval(scannerAnimation);
 
-        console.log("Mission Evaluation:", data);
+scannerContent.textContent =
+data.evaluation;
 
-        scannerContent.textContent =
-        data.evaluation;
+closeScannerBtn.style.display = "inline-block";
+
+console.log("Mission Evaluation:", data);
 
     }
     catch(error){
 
-        console.error(error);
+    clearInterval(scannerAnimation);
 
-    }
+    scannerContent.textContent =
+    "⚠ Unable to synchronise with ARIAN.\n\nPlease try again.";
+
+    closeScannerBtn.style.display =
+    "inline-block";
+
+    console.error(error);
+
+}
 
 }
     
