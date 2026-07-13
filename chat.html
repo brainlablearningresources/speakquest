@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mission - Arrival Hub12</title>
+<title>Mission - Arrival Hub13</title>
 
 <style>
 
@@ -525,12 +525,6 @@ Network Orientation Terminal
 const chatArea = document.getElementById("chatArea");
 const speakButton = document.getElementById("speakButton");
 const avatar = document.getElementById("avatar");
-
-const missionScannerModal =
-document.getElementById("missionScannerModal");
-
-const scannerContent =
-document.getElementById("scannerContent");
     
 const avatarImages = [
     "assets/expressions/neutral.png",
@@ -808,6 +802,12 @@ avatar.src = "assets/expressions/neutral.png";
 async function evaluateMission(){
 
     try{
+
+        const missionScannerModal =
+        document.getElementById("missionScannerModal");
+
+        const scannerContent =
+        document.getElementById("scannerContent");
 
         missionScannerModal.style.display = "flex";
 
