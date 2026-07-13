@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mission - Arrival Hub11</title>
+<title>Mission - Arrival Hub12</title>
 
 <style>
 
@@ -525,6 +525,13 @@ Network Orientation Terminal
 const chatArea = document.getElementById("chatArea");
 const speakButton = document.getElementById("speakButton");
 const avatar = document.getElementById("avatar");
+
+const missionScannerModal =
+document.getElementById("missionScannerModal");
+
+const scannerContent =
+document.getElementById("scannerContent");
+    
 const avatarImages = [
     "assets/expressions/neutral.png",
     "assets/expressions/thinking.png",
@@ -801,6 +808,11 @@ avatar.src = "assets/expressions/neutral.png";
 async function evaluateMission(){
 
     try{
+
+        missionScannerModal.style.display = "flex";
+
+        scannerContent.textContent =
+        "🛰 Scanning conversation...";
 
         const response = await fetch(
             "https://speakquestbackend.onrender.com/evaluateMission",
