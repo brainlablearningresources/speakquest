@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mission - Arrival Hub14</title>
+<title>Mission - Arrival Hub15</title>
 
 <style>
 
@@ -812,6 +812,12 @@ async function evaluateMission(){
         const closeScannerBtn =
         document.getElementById("closeScannerBtn");
 
+        closeScannerBtn.onclick = function(){
+
+        missionScannerModal.style.display = "none";
+
+};
+
         missionScannerModal.style.display = "flex";
 
         closeScannerBtn.style.display = "none";
@@ -838,6 +844,9 @@ async function evaluateMission(){
         closeScannerBtn.style.display = "inline-block";
 
         console.log("Mission Evaluation:", data);
+
+        scannerContent.textContent =
+        data.evaluation;
 
     }
     catch(error){
