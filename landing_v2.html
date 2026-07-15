@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SpeakQuest2</title>
+<title>SpeakQuest3</title>
 
 <style>
 
@@ -220,11 +220,134 @@ footer{
     color:#aeb7d6;
 }
 
+/* ===========================
+   Navigation
+=========================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:min(1180px,92%);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:16px 28px;
+
+    border-radius:20px;
+
+    background:rgba(16,23,40,.45);
+
+    backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 8px 40px rgba(0,0,0,.35);
+
+    z-index:1000;
+
+}
+
+.nav-logo{
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    color:#ffffff;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:35px;
+
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#d7e6ff;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#7fdcff;
+
+}
+
+.login-btn{
+
+    text-decoration:none;
+
+    color:white;
+
+    background:#6f7cff;
+
+    padding:10px 22px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 0 20px rgba(111,124,255,.45);
+
+}
+    
 </style>
 
 </head>
 <body>
 
+<nav class="navbar">
+
+    <div class="nav-logo">
+        SPEAKQUEST
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#">Home</a>
+
+        <a href="#">Features</a>
+
+        <a href="#">Mission Network</a>
+
+        <a href="#">About</a>
+
+    </div>
+
+    <a href="login.html" class="login-btn">
+        Login
+    </a>
+
+</nav>
+    
 <section class="hero">
 
 <div class="logo">🏰</div>
