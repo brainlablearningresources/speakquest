@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SpeakQuest4</title>
+<title>SpeakQuest5</title>
 
 <style>
 
@@ -377,15 +377,57 @@ footer{
 
     width:100%;
 
-    max-width:520px;
+    max-width:540px;
+
+    aspect-ratio:1/1;
+
+    border-radius:36px;
+
+    background:
+        radial-gradient(circle at top,#ffffff 0%,#eef3ff 35%,#dce8ff 100%);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 30px 70px rgba(108,123,255,.18);
+
+    animation:floatHero 5s ease-in-out infinite;
+
+}
+
+.hero-illustration::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    border-radius:50%;
+
+    background:rgba(143,215,255,.35);
+
+    filter:blur(40px);
 
 }
 
 .hero-illustration img{
 
-    width:100%;
+    width:85%;
 
-    display:block;
+    position:relative;
+
+    z-index:2;
 
 }
     
