@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SpeakQuest9</title>
+<title>SpeakQuest2</title>
 
 <style>
 
@@ -350,6 +350,34 @@ footer{
 
     align-items:center;
 
+    position:relative;
+
+}
+
+.hero-right::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+
+    height:650px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(120,170,255,.28) 0%,
+            rgba(120,170,255,.14) 35%,
+            rgba(120,170,255,0) 75%
+        );
+
+    filter:blur(30px);
+
+    border-radius:50%;
+
+    z-index:0;
+
 }
 
 .hero-tag{
@@ -386,6 +414,8 @@ footer{
     align-items:center;
 
     position:relative;
+
+    z-index:2;
 
     animation:floatHero 6s ease-in-out infinite;
 
