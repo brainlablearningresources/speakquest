@@ -36,7 +36,29 @@ body{
 
 }
 
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(circle at 72% 45%,
+        rgba(170,210,255,.18) 0%,
+        rgba(170,210,255,.08) 18%,
+        transparent 55%);
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+
 .hero{
+
+    position:relative;
 
     max-width:1200px;
 
