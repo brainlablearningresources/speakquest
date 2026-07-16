@@ -350,13 +350,18 @@ h1{
 
 .journey-divider{
 
-    width:180px;
+    flex:1;
+
+    max-width:180px;
 
     height:1px;
 
-    background:rgba(143,166,216,.35);
-
-    margin:0 auto;
+    background:linear-gradient(
+        to right,
+        transparent,
+        rgba(143,166,216,.5),
+        transparent
+    );
 
 }
 
@@ -1278,17 +1283,19 @@ footer{
 
 <section class="journey-strip">
 
-    <div class="journey-divider"></div>
-
-    <div class="journey-star">✦</div>
-
-    <p class="journey-title">
-
-        YOUR ADVENTURE INCLUDES
-
-    </p>
+   <div class="journey-heading">
 
     <div class="journey-divider"></div>
+
+    <div class="journey-title">
+
+        ✦ THE SPEAKQUEST JOURNEY ✦
+
+    </div>
+
+    <div class="journey-divider"></div>
+
+</div>
 
     <div class="journey-tags">
 
