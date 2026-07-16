@@ -529,15 +529,19 @@ footer{
 
     align-items:center;
 
-    gap:10px;
+    justify-content:center;
 
-    padding:12px 18px;
+    gap:12px;
 
-    background:rgba(255,255,255,.08);
+    width:200px;
 
-    border:1px solid rgba(255,255,255,.10);
+    padding:14px 22px;
 
-    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(14px);
 
     border-radius:999px;
 
@@ -545,23 +549,32 @@ footer{
 
     font-size:.95rem;
 
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.15);
+    font-weight:600;
 
-    transition:.35s;
+    letter-spacing:.3px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.18);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        background .35s ease,
+        box-shadow .35s ease;
 
 }
 
 .feature-item:hover{
 
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 
-    background:rgba(255,255,255,.12);
+    background:rgba(255,255,255,.10);
 
-    border-color:rgba(143,215,255,.35);
+    border-color:rgba(145,205,255,.35);
 
     box-shadow:
-        0 12px 30px rgba(111,124,255,.20);
+        0 15px 35px rgba(0,0,0,.22),
+        0 0 20px rgba(125,185,255,.15);
 
 }
 
