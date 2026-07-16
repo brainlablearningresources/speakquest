@@ -663,24 +663,31 @@ footer{
 
 .feature-card{
 
-    padding:40px 30px;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(38,49,76,.96),
+            rgba(29,40,63,.96)
+        );
 
-    border-radius:30px;
+    border:1px solid rgba(255,255,255,.06);
 
-    background:rgba(255,255,255,.06);
+    border-radius:28px;
 
-    border:1px solid rgba(255,255,255,.08);
+    padding:35px;
 
-    backdrop-filter:blur(16px);
-
-    transition:.4s;
+    text-align:center;
 
     position:relative;
 
     overflow:hidden;
 
-}
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
 
+}
 .feature-card:hover{
 
     transform:translateY(-10px);
