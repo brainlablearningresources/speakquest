@@ -688,6 +688,35 @@ footer{
         border-color .35s ease;
 
 }
+
+.feature-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.08),
+            transparent
+        );
+
+    transform:skewX(-25deg);
+
+    transition:left .7s ease;
+
+}
+    
 .feature-card:hover{
 
     transform:
@@ -701,6 +730,12 @@ footer{
         0 0 35px rgba(115,160,255,.18);
 
 }
+
+.feature-card:hover::before{
+
+    left:160%;
+
+}    
 
 .feature-icon{
 
